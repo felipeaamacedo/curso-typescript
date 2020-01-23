@@ -1,0 +1,24 @@
+{
+  "name": "curso-typescript",
+  "version": "1.0.0",
+  "description": "Repositório referente ao curso de TypeScript que estou fazendo na Udemy pelo COD3R",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipeaamacedo/curso-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipeaamacedo/curso-typescript/issues"
+  },
+  "homepage": "https://github.com/felipeaamacedo/curso-typescript#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
