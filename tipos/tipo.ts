@@ -131,12 +131,13 @@ console.log(usuario.nome)
         -> Fora do horário (>8)
 */
 
-let funcionario :{supervisores: Array<string>, horaEntrada:number, horaSaida:number, baterPonto: () => string } = {
+let funcionario :{
+    supervisores: Array<string>, 
+    baterPonto: (horaEntrada:number, horaSaida:number) => string 
+} = {
     supervisores: ['carlos', 'roberto', 'heitor'],
-    horaEntrada: 10,
-    horaSaida: 17,
-    baterPonto: function baterPonto(): string{
-        let horaTrabalho = funcionario.horaSaida - funcionario.horaEntrada;
+    baterPonto: function baterPonto(horaEntrada:number, horaSaida:number): string{
+        let horaTrabalho = horaSaida - horaEntrada;
         if (horaTrabalho <= 8) {
             return 'Ponto normal';            
         } else {
@@ -144,5 +145,7 @@ let funcionario :{supervisores: Array<string>, horaEntrada:number, horaSaida:num
         }
     }
 }
+console.log(funcionario.supervisores)
+console.log(funcionario.baterPonto(7, 10));
 
-console.log(funcionario.baterPonto());
+
