@@ -77,3 +77,46 @@ console.log(carro);                 // This time it is an object
 
 
 
+//Functions
+//Functions are very important when dealling with JS and TS because it is the main heart of the language.
+
+
+//A function that returns a string type of data.
+function retornaMeuNome():string{
+    return nome;
+}
+
+console.log(retornaMeuNome());
+
+//Function that doesn't return anything, that is why it is a void type of function.
+function digaOi():void{
+    console.log('Oi');
+    
+}
+digaOi()
+
+//Function that receives 2 number values, and returns another number value.
+function multiplicar(numA:number, numB:number):number{
+    return numA * numB
+}
+
+console.log(multiplicar(2,5));
+
+//Funções como tipo
+//No TS ou JS tem a possibilidade de atribuir uma função a uma variável.
+let calculo: (x:number, y:number) => number;
+//Ao definir uma variável como uma função, da forma como está acima, é importante pois quando atribuir uma função específica para ela, ela só vai aceitar funções iguais aos tipos atribuidos, ou seja, uma função como "multiplicar", ao tentar atribuir a função "digaOi" por exemplo, o TS pega um erro.
+calculo = multiplicar
+console.log(calculo(5,6));
+
+
+//OBJECTS
+//The correct way to infere the type of data in an object is saying the type of data before the values, as seen bellow.
+let usuario: { nome: string, idade: number } = {
+    nome: 'João',
+    idade: 27,
+}
+
+usuario.nome = 'Jefferson';
+
+console.log(usuario.nome)
