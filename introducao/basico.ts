@@ -29,5 +29,5 @@ console.log(changeChapter)
 console.log(space)
 
 // Início dos exercícios do capítulo.
-let a : string = 'To no TypeScript com direito a servidor ao vivo, bitchessss!! 333333'
+let a : string = 'To no TypeScript com direito a servidor ao vivo, bitchessss!!'
 console.log(a)
