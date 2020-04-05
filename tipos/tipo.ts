@@ -4,6 +4,25 @@ console.log(' ');
 console.log(changeChapter);
 console.log(space);
 
+/* 
+TOC
+
+1. Tipos numéricos e booleanos
+2. Array e tipos
+3. TUPLAS
+4. ENUMS
+5. Tipo ANY 
+6. Funções
+7. Funções como tipo
+8. Tipo objetos
+9. Definindo tipos personalizados o ALIAS
+10. Múltiplos tipos com o UNION TYPE
+11. Checando tipos em Runtime
+12. O tipo NEVER
+12. Valores opcionais com o tipo NULL
+
+*/
+
 
 
 //Início do capítulo 2 típos.
@@ -289,21 +308,35 @@ podeSerNulo = null;
 console.log(podeSerNulo);
 
 
-// AULA 29 - DESAFIO TRANFORMAR CÓDIGO JS EM TS
-let contaBancaria:{saldo:number, depositar:(valor:number)=>void} = {
+// AULA 29 - DESAFIO TRANFORMAR CÓDIGO JS EM TS 
+// como precisamos as variáveis contaBancaria e correntista tem formatos característicos e personalizados, é melhor criar um Tipo específico para cada um deles, pois dessa forma podemos criar mais contas bancárias e correntistas, sem precisar repetir cada vez o mesmo comando.
+//
+
+type ContaBancaria = {
+  saldo:number,
+  depositar:(valor:number)=>void
+}
+
+type Correntista = {
+  nome:string,
+  contaBancaria:ContaBancaria,
+  contatos:string[]
+}
+
+let contaBancaria:ContaBancaria = {
     saldo: 3456,
     depositar(valor:number){
         this.saldo += valor
     }
 }
 
-let correntista:{nome:string, contaBancaria:{saldo:number, depositar:(valor:number)=>void}, contatos:string[]} = {
+let correntista:Correntista = {
     nome:'Ana Silva',
     contaBancaria: contaBancaria,
     contatos:['34567890', '98765432']
 }
 
-correntista.contaBancaria.depositar(3000)
+correntista.contaBancaria.depositar(6000)
 console.log(correntista);
 
 

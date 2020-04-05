@@ -4,6 +4,24 @@ var space = "--------------------------------";
 console.log(' ');
 console.log(changeChapter);
 console.log(space);
+/*
+TOC
+
+1. Tipos numéricos e booleanos
+2. Array e tipos
+3. TUPLAS
+4. ENUMS
+5. Tipo ANY
+6. Funções
+7. Funções como tipo
+8. Tipo objetos
+9. Definindo tipos personalizados o ALIAS
+10. Múltiplos tipos com o UNION TYPE
+11. Checando tipos em Runtime
+12. O tipo NEVER
+12. Valores opcionais com o tipo NULL
+
+*/
 //Início do capítulo 2 típos.
 // AULA 12 - TIPOS NUMÉRICOS E BOOLEANOS
 //string
@@ -214,7 +232,6 @@ podeSerNulo = "Heyy";
 console.log(podeSerNulo);
 podeSerNulo = null;
 console.log(podeSerNulo);
-// AULA 29 - DESAFIO TRANFORMAR CÓDIGO JS EM TS
 var contaBancaria = {
     saldo: 3456,
     depositar: function (valor) {
@@ -226,5 +243,5 @@ var correntista = {
     contaBancaria: contaBancaria,
     contatos: ['34567890', '98765432']
 };
-correntista.contaBancaria.depositar(3000);
+correntista.contaBancaria.depositar(6000);
 console.log(correntista);
