@@ -25,9 +25,9 @@
 
 //RESUMO DE COMANDOS PARA INSTALAR TYPESCRIPT
 //1. npm i -g typescript
-//2. tsc --init
-//3. npm i -g ts-node
-//4. npm init -y
+//2. npm i -g ts-node
+
+//RESUMO PARA INICIAR UM PROJETO TS //2. tsc --init //3. npm i -g ts-node //4. npm init -y
 //5. npm i -s live-server e inserir comando "start":"live-server" under package.json file
 
 //RESUMO DE COMANDOS PARA RODAR TYPESCRIPT E COMPILAR AUTOMATICAMENTE NO BROWSER
