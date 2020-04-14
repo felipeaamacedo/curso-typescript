@@ -22,9 +22,8 @@
 //7. abrir um novo terminal e usar o comando "tsc -w" que o typescript fica em modo WATCH e qualquer modificação do arquivo, quando salvo, ele já é compilado e a modificação aparece no browser.
 //RESUMO DE COMANDOS PARA INSTALAR TYPESCRIPT
 //1. npm i -g typescript
-//2. tsc --init
-//3. npm i -g ts-node
-//4. npm init -y
+//2. npm i -g ts-node
+//RESUMO PARA INICIAR UM PROJETO TS //2. tsc --init //3. npm i -g ts-node //4. npm init -y
 //5. npm i -s live-server e inserir comando "start":"live-server" under package.json file
 //RESUMO DE COMANDOS PARA RODAR TYPESCRIPT E COMPILAR AUTOMATICAMENTE NO BROWSER
 //npm start
@@ -34,6 +33,7 @@ var space = '-----------------------------';
 console.log(changeChapter);
 console.log(space);
 // Início dos exercícios do capítulo.
-var a = 'To no TypeScript com direito a servidor ao vivo, bitchessss!!';
+let a = 'To no TypeScript com direito a servidor ao vivo, bitchessss!!';
 console.log(a);
-var b = 5;
+let b = 5;
+//# sourceMappingURL=basico.js.map

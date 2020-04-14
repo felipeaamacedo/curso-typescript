@@ -1,6 +1,6 @@
 "use strict";
 //INICIANDO A SEÇÃO 3 - ENTENDENDO O COMPILADOR TYPESCRIPT
-var section3Inicio = "section 3 - testando live-server";
+let section3Inicio = "section 3 - testando live-server";
 console.log(section3Inicio);
 /*
  1. COMPILAÇÃO E "noEmitOnError"
@@ -11,6 +11,16 @@ console.log(section3Inicio);
  6. DIRETÓRIO DE SAÍDA
  7. ARQUIVO DE SAÍDA
  */
+// AULA 34 Introdução ao módulo
+// entendendo como o compilador de TypeScript funciona
+// com o código abaixo  typescript gera um erro onde está escrito "canal = inscritos" pois canal não tem o mesmo tipo que inscritos. Entretanto, mesmo assim o arquivo JS é gerado, e é possivel compilá-lo.
+let canal = "Gaveta";
+let inscritos = 60123;
+//canal = inscritos
+console.log(`Canal = ${canal}`);
+//Para fazer com que o typescript não compile o arquivo, é necessário ir no arquivo de configuração do typescript, "tsconfig.json" e adicionar o código ""noEmitOnError": true,".
+//
+// Você pode testar comentando ou não o código "canal = inscritos", com o comando "noEmitOnError": false,
 // AULA 35 - COMPILAÇÃO E "NOEMITONERROR"
 // propriedade: "noEmitOnError
 // Faz com que o compilador javascript não gere o arquivo JS caso essa opção esteja em true. Essa propriedade é importante pois por default, apesar o TS estar falando que tem algum erro no código, ainda sim ele gera o arquivo JS e o browser atualiza com o erro.
@@ -36,3 +46,4 @@ console.log(section3Inicio);
 // links importantes
 // https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 // https://www.typescriptlang.org/docs/handbook/compiler-options.html
+//# sourceMappingURL=compiler.js.map
