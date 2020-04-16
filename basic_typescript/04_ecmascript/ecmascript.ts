@@ -30,3 +30,34 @@ console.log(`FUNCTION TRADICIONAL: A soma de 3 + 3 é ${somaFunctionTradicional(
 //FUCTION EM ARROW FUNCION
 let somaArrowFunction = (n1:number, n2:number):number => n1+n2;
 console.log(`ARROW FUNCTION: A soma de 2 + 3 é ${somaArrowFunction(2,3)}`) 
+//AULA 49 PARÂMETRO PADRÃO
+//valores padrão no TS são só uma maneira que temos para poder iniciar uma função quando o usuário não tenha atribuido nenhum parâmetro. É utilizada nos parâmetros das funções logo após settado o tipo do parâmetro. e.g. "contagemRegressiva(inicio:number = 3) <-- o igual a 3 é o valor padrão definido na função. 
+function contagemRegressiva(inicio:number = 3):void{
+	console.log(inicio)
+	while(inicio > 0){
+		inicio--
+		console.log(inicio)
+	}
+	console.log("Fim!!")
+}
+
+contagemRegressiva()
+contagemRegressiva(5)
+
+
+//AULA 50 - OPERADOR SPREAD & REST
+//OQUE: É a sintaxe "..." 
+//
+
+const numbers = [1, 10, 99, -5]
+//Modo tradicional falar colocar como input um array em Math.max, que não aceita arrays como parâmetro, então deve ser inserido cada parâmetro por padrão.
+console.log("MODO TRADICIONAL: " + Math.max(numbers[0], numbers[1], numbers[2], numbers[3]))
+
+//MODO COM SPREAD(SPREAD -> ESPALHAR), em vez de colocar cada número você usa o parâmetro spread para falar informar que está inserindo todos os itens separadamente.
+console.log("MODO SPREAD: " + Math.max(...numbers))
+
+//Inserindo array de strings dentro de outra array de strings com o SPREAD
+
+const turmaA:string[] = ['Joao', 'Maria', 'Fernanda']
+const turmaB:string[] = ['Fernando', ...turmaA, 'Miguel', 'Lorena']
+console.log('USANDO SPREAD PARA JUNTAR ARRAYS: ' + turmaB)
