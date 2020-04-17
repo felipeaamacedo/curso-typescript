@@ -48,4 +48,138 @@ console.log("MODO SPREAD: " + Math.max(...numbers));
 const turmaA = ['Joao', 'Maria', 'Fernanda'];
 const turmaB = ['Fernando', ...turmaA, 'Miguel', 'Lorena'];
 console.log('USANDO SPREAD PARA JUNTAR ARRAYS: ' + turmaB);
+//Usando REST para agrupar os números inseridos em uma array
+//
+function retornarArray(...args) {
+    return args;
+}
+const numeros = retornarArray(1, 2, 4, 8, 16, 64, 128, 256, 512, 1024);
+console.log('ARRAY DE DOS NUMEROS É: ' + numeros);
+console.log('NESTE MOMENTO JUNTAMOS OS NÚMEROS QUE ERAM SEPARADOS EM UMA ARRAY');
+console.log(numeros);
+//REST & SPREAD EM TUPLAS
+//neste caso, em vez de inserir 3 variáveis diferentes, como na function tuplaParam1, simplesmente usmos o operador REST com 3 tipos diferentes, como indicado na function tuplaParam2.
+const tupla = [1, 'abc', false];
+function tuplaParam1(a, b, c) {
+    console.log(`1) ${a}, ${b}, ${c}`);
+}
+tuplaParam1(...tupla);
+function tuplaParam2(...params) {
+    console.log(`2) ${params}`);
+}
+//entretanto, como a função espera 3 parâmetros diferentes, e a const tupla, é uma variável array, é necessário usar o operador SPREAD para desassociar as variáveis dentro do array.
+tuplaParam2(...tupla);
+//AULA 53 OPERADOR DESTRUCTURING (ARRAY)
+//é uma maneira de atribuir valores de dentro de uma string em uma variável ou constante de forma mais simples. É utilizado quando você precisa atribuir todos os valores de uma array, quando cada valor da coluna da array rtem um significado. é utilizado da seguinte forma:
+//
+//GEITO USUAL
+const caracteristicas = ['Motor Zetec 1.8', 2020];
+//const motor = caracteristicas[0]
+//const ano = caracteristicas[1]
+//GEITO COM DESTRUCTURING
+const [motor, ano] = caracteristicas;
+console.log(motor);
+console.log(ano);
+//AULA 54 - OPERADOR DESTRUCTURING (OBJETO)
+//é um metodo para chamar criar diversas variáveis referentes a atributos de um objeto, em uma única linha. Diferença entre ARRAYS e OBJETOS, Array usa [] então o destructuring do array usa [], o objeto usa {} então o destructuring usa {}.
+const item = {
+    nome: 'SSD 480GB',
+    preco: 200
+};
+const nomeItem = item.nome;
+const precoItem = item.preco;
+const { nome: n, preco: p } = item; //maneira de criar um alias chamando uma variável por um apelido no caso chamad nome com 'n'
+console.log(n);
+console.log(p);
+console.log(nomeItem);
+console.log(precoItem);
+//AULA 55 - TEMPLATE STRING
+//uma maneira de fazer concatenar sem precisar ficar adicionando o +, como se estivesse somando valores. É utilizado com strings, de forma a formar textos. Para utilizar é utilizado a aspas "``" e dentro no lugar onde é utilizado a variável o comando ${}, estando dentro das chaves a variável. Além de inserir as variáveis, também é possível fazer operações quando você está no ambiente ${}, como o exemplo da operação em Notificações utilizando um Conditional operator do tipo "condition ? valTrue : valFalse"
+const usuarioID = 'Felipenta';
+const notificacoes = '13';
+const boasVindas = `Boas vindas ${usuarioID}, Notificações ${parseInt(notificacoes) > 9 ? '+9' : notificacoes}`;
+console.log(boasVindas);
+/*
+//DESAFIO ECMASCRIPT
+//Exercício 1
+
+var dobro = function(valor){
+    return valor*2
+}
+console.log(dobro(10))
+
+
+//Exercicio 2
+
+var dizerOla = function(nome){
+    if (nome === undefined){nome='Pessoa'}
+    console.log('Olá, ' + nome
+}
+
+dizerOla()
+dizerOla('Anna')
+
+//Exercicio 3
+
+var enums = [-3, 33, 38, 5]
+//Imprimir o menor valor
+console.log('???')
+
+//Exercicio 4
+var array = [55, 20]
+//Adicionar todos os elementos de "nums" em array
+console.log(array)
+
+//Exercicio 5
+var notas = [8.5, 6.3, 9.4]
+var nota1 = notas[0]
+var nota2 = notas[1]
+var nota3 = notas[2]
+console.log(nota1, nota2, nota3)
+
+//Exercicio6
+var cientista = {primeiroNome:'Will', experiencia:12 }
+var primeiroNome = cientista.primeiroNome
+var experiencia = cientista.experiencia
+console.log(primeiroNome, experiencia)
+*/
+//DESAFIO ECMASCRIPT
+//Exercício 1
+console.log('EXERCICIO 1');
+console.log(' ');
+const dobro = (valor) => valor * 2;
+console.log(dobro(10));
+//Exercicio 2
+console.log('EXERCICIO 2');
+console.log(' ');
+const dizerOla = function (nome = 'Pessoa') {
+    console.log('Olá, ' + nome);
+};
+dizerOla();
+dizerOla('Anna');
+//Exercicio 3
+console.log('EXERCICIO 3');
+console.log(' ');
+const enums = [-3, 33, 38, 5];
+//Imprimir o menor valor
+console.log(Math.min(...enums));
+//Exercicio 4
+console.log('EXERCICIO 4');
+console.log(' ');
+const array = [55, 20];
+//Adicionar todos os elementos de "nums" em array
+array.push(...enums);
+console.log(array);
+//Exercicio 5
+console.log('EXERCICIO 5');
+console.log(' ');
+const notas = [8.5, 6.3, 9.4];
+const [nota1, nota2, nota3] = notas;
+console.log(nota1, nota2, nota3);
+//Exercicio6
+console.log('EXERCICIO 6');
+console.log(' ');
+const cientista = { primeiroNome: 'Will', experiencia: 12 };
+const { primeiroNome, experiencia } = cientista;
+console.log(primeiroNome, experiencia);
 //# sourceMappingURL=ecmascript.js.map
