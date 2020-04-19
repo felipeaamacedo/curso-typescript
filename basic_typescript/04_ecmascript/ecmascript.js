@@ -1,6 +1,19 @@
 "use strict";
 console.log('Seção 4: Typescript e os Novos Recursos ECMAScript');
 console.log('--------------------------------------------------');
+//
+// TABLE OF CONTENTS
+//
+// 1. Let e Const
+// 2. Arrow Function
+// 3. Parâmetro Padrão
+// 4. Operator SPREAD & REST
+// 5. Operator Destructuring (ARRAY)
+// 6. Operator Destructuring (OBJECT)
+// 7. Template String
+// 8. Desafio EcmaScript
+// 9. Promises
+//
 //AULA 45 LET e CONST
 //comando LET é a nova forma de criar variáveis, ela é muito importante pois podemos criar variáveis em escopo local, e não somente global, como era o caso do VAR (que ainda pode ser utilizado.)
 let seraQuePode = '?';
@@ -182,4 +195,6 @@ console.log(' ');
 const cientista = { primeiroNome: 'Will', experiencia: 12 };
 const { primeiroNome, experiencia } = cientista;
 console.log(primeiroNome, experiencia);
+//AULA 59 - PROMISES
+//uma maneira de trabalhar com assincronismo em JavaScript
 //# sourceMappingURL=ecmascript.js.map
