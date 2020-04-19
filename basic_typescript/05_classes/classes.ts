@@ -83,3 +83,45 @@ console.log(banana)
 const laranja = new TProduto('laranja', 4, 0.10)
 console.log(laranja)
 
+
+//AULA 67 - CLASSES & METODOS
+//é o nome dado a funções que estão dentro de uma classe.
+
+class TProduto2{
+	constructor(public nome:string, public preco:number, public desconto:number){
+	}
+	
+	public resumo():string{
+		return `${this.nome} custa ${this.preco} com um desconto de ${this.desconto *100}%`
+	}
+}
+
+const prod1 = new TProduto2('Caneta BIC', 0.80, 0.10)
+console.log(prod1.resumo())
+
+
+//Desafio CLASSES & METODOS
+//Criar método precoComDesconto
+//Quais são os parâmetros e o retorno
+//Alterar método resumo para mostrar o preço com desconto
+//
+
+class TProduto3{
+	constructor(public nome:string, public preco:number, public desconto:number){
+	}
+	
+	public precoComDesconto():number{
+		return this.preco*(1 - this.desconto)
+	}	
+	
+	public resumo():string{
+		return `${this.nome} custa ${this.preco} com um desconto de ${this.desconto *100}% o preço se torna ${this.precoComDesconto()}`
+	}
+}
+
+const prod2 = new TProduto3('Caneca Star Wars', 4.50, 0.10)
+console.log(prod2.resumo())
+
+
+//AULA 70 - MODIFICADORES DE ACESSO (PUBLIC, PRIVATE, PROTECTED)
+//
