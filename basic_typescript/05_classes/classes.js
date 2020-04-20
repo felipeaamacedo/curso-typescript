@@ -150,8 +150,51 @@ class TFerrari extends TCarro {
         return this.alterarVelocidade(-15);
     }
 }
-const f40 = new TFerrari('Ferrari', 'F40', 324);
+const f40 = new TFerrari('F40', 324);
 console.log(`${f40.marca} ${f40.modelo}`);
 console.log(f40.acelerar());
 console.log(f40.frear());
+// AULA 73 - GETTERS AND SETTERS
+// é uma metodologia de acessar e atribuir valores aos atributos da classe. Usualmente nas linguagens de programação normal, é utilizado criando-se um método com o nome get ou set seguido do nome do atributo e.g. getIdade, mas em TS e JS é utilizado com uma variável, sa seguinte forma "get idade" ou "set idade". É utilizado quando é necessário acessar algum parâmetro privado, fazendo validações, um exemplo é se o usuário tentasse inserir uma idade negativa, com o get/set é possível validar se a idade é negativa ou não. É usada dentro da classe, a partir das palavras get e set.
+//
+// uma vantagem da variável get e set no TS, JS em relação às outras linguagens, é que você não precisa ficar criando diversos get set para todos os atributos, você utiliza somente nas necessárias, quando esse atributo requer algum tipo de validação. Ainda, se durante o desenvolvimento você descobrir que algum get/set precisa ser criado, você pode facilmente criar adicionando o get ou set na frente, mas sem ter que mudar em todo o código a estrutura de chamada, já que o pessoa1.idade, não precisa ser alterado para pessoa1.getIdade por exemplo.
+//
+class TPessoa {
+    constructor() {
+        this._idade = 0;
+    }
+    get idade() {
+        return this._idade;
+    }
+    set idade(valor) {
+        if (valor >= 0 && valor <= 120) {
+            this._idade = valor;
+        }
+    }
+}
+const pessoa1 = new TPessoa;
+pessoa1.idade = 10;
+console.log(pessoa1.idade);
+pessoa1.idade = -3;
+console.log(pessoa1.idade);
+//AULA 74 - MEMBROS ESTÁTICOS
+//quando estático o  tributo/método é da classe e não da instância, desta forma a classe tem um papel maior, pois não é necessário criar uma instância para poder usar os métodos. É utilizado quando se trabalha com criação de classes que não tem a necessidade de criar uma instância para usar os atributos/métodos. Um exemplo seria uma biblioteca de funções matemáticas, como a Math. Para declarar um membro estático, é necessário, somente adicionar a palavra 'static' antes do atributo/metodo.
+//
+class Matematica {
+    constructor() {
+        this.PI = 3.14;
+    }
+    areaCirc(raio) {
+        return this.PI * Math.pow(raio, 2);
+    }
+}
+let mat = new Matematica;
+console.log("ÁREA DO CIRCULO CRIANDO INSTANCIA COM MATEMATICA: " + mat.areaCirc(2));
+class MatematicaEstatico {
+    static areaCirc(raio) {
+        return this.PI * Math.pow(raio, 2);
+    }
+}
+MatematicaEstatico.PI = 3.14;
+console.log("ÁREA DO CIRCULO COM MATEMÁTICAESTÁTICO: " + MatematicaEstatico.areaCirc(2));
 //# sourceMappingURL=classes.js.map
