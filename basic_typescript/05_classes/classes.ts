@@ -8,10 +8,11 @@
 // 6. Herança
 // 7. Getters & Setters
 // 8. Membros Estáticos
-// 9. Construtor Privado & Singleton
-// 10. Atributos Somente Leitura
-// 11. Desafio do Módulo
-// 12. Conclusão
+// 9. Classe Abstrata
+// 10. Construtor Privado & Singleton
+// 11. Atributos Somente Leitura
+// 12. Desafio do Módulo
+// 13. Conclusão
 //
 
 //
@@ -243,3 +244,40 @@ class MatematicaEstatico{
 }
 
 console.log("ÁREA DO CIRCULO COM MATEMÁTICAESTÁTICO: " + MatematicaEstatico.areaCirc(2))
+
+
+//AULA 75 - CLASSE ABSTRATA
+//é um conceito em OOP onde uma classe é criada mas não serve para ser instanciada, somente usada como classe PAI de outras classes que essas sim serão instanciadas. É especifico do Typescript, não está presente no JS mas está em outras linguagens de programação mais baixo nível (C++, Object PASCAL, JAVA etc...).  É utilizada quando necessita criar uma classe que não tem como objetivo ser instanciada e no caso nem é possível ser instanciada, mas ser a classe PAI de outras classes. É utilizada como template geral, por exemplo, Garrafa de café, garrafas de café tem vários tipos e formatos, que as vezes funcionam de maneira diferente, exemplo garrafa de bomba e garrafa de tampa, com isso você consegue criar funções inacabadas, como exemplo um método colocarCafe que deve ser discriminado em suas classes filhas. Essa classe é criada simplesmente adicionando a palavra 'abstract' antes do 'class', e os métodos abstratos podem ser discriminados escrevendo, da mesma forma, 'abstract' antes, e sem abrir e fechar chaves.  
+//
+//polimorfismo - uma classe tem várias formas, aquela classe Calculo tem uma hora forma de Soma, outra hora de Multiplicação, etc...
+
+abstract class TCalculo{
+	protected _resultado:number = 0
+
+	abstract executar(...numeros: number[]):void
+	get resultado():number{
+		return this._resultado
+	}
+}
+
+class TSoma extends TCalculo {
+	executar(...numeros:number[]):void{
+		this._resultado = numeros.reduce((total, adicionando)=>total + adicionando)
+	}	
+}
+
+class TMultiplicacao extends TCalculo {
+	executar(...numeros:number[]):void{
+		this._resultado = numeros.reduce((total, adicionando)=>total * adicionando)
+	}	
+}
+
+let c1 = new TSoma
+c1.executar(2,3,4,5)
+console.log(`O RESULTADO DA SOMA DE 2,3,4,5 É ${c1.resultado}`)
+
+c1 = new TMultiplicacao
+c1.executar(2,3,4,5)
+console.log(`O RESULTADO DA MULTIPLICAÇÃO DE 2,3,4,5 É ${c1.resultado}`)
+
+

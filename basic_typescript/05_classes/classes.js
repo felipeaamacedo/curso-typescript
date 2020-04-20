@@ -197,4 +197,32 @@ class MatematicaEstatico {
 }
 MatematicaEstatico.PI = 3.14;
 console.log("ÁREA DO CIRCULO COM MATEMÁTICAESTÁTICO: " + MatematicaEstatico.areaCirc(2));
+//AULA 75 - CLASSE ABSTRATA
+//é um conceito especificamente do Typescript, tem como objetivo ser a classe PAI de outras classes, ela não pode ser instanciada. Você consegue criar funções inacabadas, você sabe que tem aquele método mas dependendo de cada classe
+//
+//polimorfismo - uma classe tem várias formas, aquela classe Calculo tem uma hora forma de Soma, outra hora de Multiplicação, etc...
+class TCalculo {
+    constructor() {
+        this._resultado = 0;
+    }
+    get resultado() {
+        return this._resultado;
+    }
+}
+class TSoma extends TCalculo {
+    executar(...numeros) {
+        this._resultado = numeros.reduce((total, adicionando) => total + adicionando);
+    }
+}
+class TMultiplicacao extends TCalculo {
+    executar(...numeros) {
+        this._resultado = numeros.reduce((total, adicionando) => total * adicionando);
+    }
+}
+let c1 = new TSoma;
+c1.executar(2, 3, 4, 5);
+console.log(`O RESULTADO DA SOMA DE 2,3,4,5 É ${c1.resultado}`);
+c1 = new TMultiplicacao;
+c1.executar(2, 3, 4, 5);
+console.log(`O RESULTADO DA MULTIPLICAÇÃO DE 2,3,4,5 É ${c1.resultado}`);
 //# sourceMappingURL=classes.js.map
