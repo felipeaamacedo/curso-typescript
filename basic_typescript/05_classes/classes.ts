@@ -280,4 +280,46 @@ c1 = new TMultiplicacao
 c1.executar(2,3,4,5)
 console.log(`O RESULTADO DA MULTIPLICAÇÃO DE 2,3,4,5 É ${c1.resultado}`)
 
+// AULA 76 - CONSTRUTOR PRIVADO & SINGLETON
+// O singleton é utilizado quando você quer trabalhar com uma única instância, mas que ao mesmo tempo você gostaria de receber métodos e atributos de uma outra classe com a propriedade de herança. Criar uma classe com um número definido de instancias criadas. 
+
+class TUnico {
+	private static instance:TUnico = new TUnico
+private constructor() {}
+
+static getInstance():TUnico{
+	return TUnico.instance
+}	
+
+agora(){
+	return new Date
+}
+
+}
+
+
+console.log(TUnico.getInstance().agora())
+
+
+	
+//AULA 77 - Atributos somente leitura
+//
+
+class TAviao{
+	public readonly modelo:string
+
+	constructor(modelo:string, public readonly prefixo:string){
+	this.modelo = modelo
+}
+
+}
+
+const turboHelice = new TAviao('Tu-114', 'PT-ABC')
+//Nesse caso se eu tentar mudar os atributos modelo e prefixo, o TS gera um erro, para alertar que esses atributos são do tipo readonly. Se o atributo noEmitOnError estiver false, o JS será gerado e essa alteração será visualizada no Browser, entretanto, se estiver true, o TS não será gerado.
+//
+
+//turboHelice.modelo = 'DC-8'
+//turboHelice.prefixo = 'PT-DEF'
+console.log(turboHelice)
+
 

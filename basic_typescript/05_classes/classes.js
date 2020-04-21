@@ -9,10 +9,11 @@
 // 6. Herança
 // 7. Getters & Setters
 // 8. Membros Estáticos
-// 9. Construtor Privado & Singleton
-// 10. Atributos Somente Leitura
-// 11. Desafio do Módulo
-// 12. Conclusão
+// 9. Classe Abstrata
+// 10. Construtor Privado & Singleton
+// 11. Atributos Somente Leitura
+// 12. Desafio do Módulo
+// 13. Conclusão
 //
 //
 //AULA 63 - CLASSES & ATRIBUTOS PART 1
@@ -198,7 +199,7 @@ class MatematicaEstatico {
 MatematicaEstatico.PI = 3.14;
 console.log("ÁREA DO CIRCULO COM MATEMÁTICAESTÁTICO: " + MatematicaEstatico.areaCirc(2));
 //AULA 75 - CLASSE ABSTRATA
-//é um conceito especificamente do Typescript, tem como objetivo ser a classe PAI de outras classes, ela não pode ser instanciada. Você consegue criar funções inacabadas, você sabe que tem aquele método mas dependendo de cada classe
+//é um conceito em OOP onde uma classe é criada mas não serve para ser instanciada, somente usada como classe PAI de outras classes que essas sim serão instanciadas. É especifico do Typescript, não está presente no JS mas está em outras linguagens de programação mais baixo nível (C++, Object PASCAL, JAVA etc...).  É utilizada quando necessita criar uma classe que não tem como objetivo ser instanciada e no caso nem é possível ser instanciada, mas ser a classe PAI de outras classes. É utilizada como template geral, por exemplo, Garrafa de café, garrafas de café tem vários tipos e formatos, que as vezes funcionam de maneira diferente, exemplo garrafa de bomba e garrafa de tampa, com isso você consegue criar funções inacabadas, como exemplo um método colocarCafe que deve ser discriminado em suas classes filhas. Essa classe é criada simplesmente adicionando a palavra 'abstract' antes do 'class', e os métodos abstratos podem ser discriminados escrevendo, da mesma forma, 'abstract' antes, e sem abrir e fechar chaves.  
 //
 //polimorfismo - uma classe tem várias formas, aquela classe Calculo tem uma hora forma de Soma, outra hora de Multiplicação, etc...
 class TCalculo {
@@ -225,4 +226,31 @@ console.log(`O RESULTADO DA SOMA DE 2,3,4,5 É ${c1.resultado}`);
 c1 = new TMultiplicacao;
 c1.executar(2, 3, 4, 5);
 console.log(`O RESULTADO DA MULTIPLICAÇÃO DE 2,3,4,5 É ${c1.resultado}`);
+// AULA 76 - CONSTRUTOR PRIVADO & SINGLETON
+// O singleton é utilizado quando você quer trabalhar com uma única instância, mas que ao mesmo tempo você gostaria de receber métodos e atributos de uma outra classe com a propriedade de herança. Criar uma classe com um número definido de instancias criadas. 
+class TUnico {
+    constructor() { }
+    static getInstance() {
+        return TUnico.instance;
+    }
+    agora() {
+        return new Date;
+    }
+}
+TUnico.instance = new TUnico;
+console.log(TUnico.getInstance().agora());
+//AULA 77 - Atributos somente leitura
+//
+class TAviao {
+    constructor(modelo, prefixo) {
+        this.prefixo = prefixo;
+        this.modelo = modelo;
+    }
+}
+const turboHelice = new TAviao('Tu-114', 'PT-ABC');
+//Nesse caso se eu tentar mudar os atributos modelo e prefixo, o TS gera um erro, para alertar que esses atributos são do tipo readonly. Se o atributo noEmitOnError estiver false, o JS será gerado e essa alteração será visualizada no Browser, entretanto, se estiver true, o TS não será gerado.
+//
+//turboHelice.modelo = 'DC-8'
+//turboHelice.prefixo = 'PT-DEF'
+console.log(turboHelice);
 //# sourceMappingURL=classes.js.map
