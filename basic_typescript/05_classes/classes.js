@@ -1,7 +1,7 @@
 "use strict";
 // TABLE OF CONTENTS
 //
-// 1. Classes & Atributes
+// 1. Classes, atributos & construtores 
 // 2. Desafio classe Produto
 // 3. Classes & Métodos
 // 4. Desafio Método
