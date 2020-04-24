@@ -1,1 +1,1 @@
-{"version":3,"file":"retangulo.js","sourceRoot":"","sources":["retangulo.ts"],"names":[],"mappings":";;;IAAA,SAAgB,aAAa,CAAC,IAAW,EAAE,MAAa;QACvD,OAAO,IAAI,GAAC,MAAM,CAAA;IACnB,CAAC"}
+{"version":3,"file":"retangulo.js","sourceRoot":"","sources":["retangulo.ts"],"names":[],"mappings":";;AAAA,SAAwB,aAAa,CAAC,IAAW,EAAE,MAAa;IAC/D,OAAO,IAAI,GAAC,MAAM,CAAA;AACnB,CAAC;AAFD,gCAEC"}

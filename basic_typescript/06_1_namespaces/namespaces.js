@@ -1,9 +1,14 @@
 "use strict";
+//
+// TOC
+// 1. Introdução a Namespaces
+// 2. Namespaces em Multiplos Arquivos
+// 3. Namespaces Imports
+// 4. Limitação dos Namespaces
+//
 //AULA 84 - INTRODUCAO A NAMESPACES
 //
 var Areas;
-//AULA 84 - INTRODUCAO A NAMESPACES
-//
 (function (Areas) {
     const PI = 3.14;
     function circunferencia(raio) {
@@ -19,7 +24,6 @@ console.log(Areas.circunferencia(3));
 console.log(Areas.retangulo(2, 4));
 //NAMESPACES ANINHADOS (um namespace dentro de outro)
 var Geometria;
-//NAMESPACES ANINHADOS (um namespace dentro de outro)
 (function (Geometria) {
     let Areas;
     (function (Areas) {

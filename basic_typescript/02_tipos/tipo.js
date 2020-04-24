@@ -57,9 +57,6 @@ console.log("O Meu endereço é: " + endereco);
 // ENUM
 // Estrutura de lista que você usa valores pré-definidos, que não constam nos tipos apresentados anteriores. Exemples: Days of the Week, Actions in a movie...
 var Cor;
-// AULA 16 - ENUMS
-// ENUM
-// Estrutura de lista que você usa valores pré-definidos, que não constam nos tipos apresentados anteriores. Exemples: Days of the Week, Actions in a movie...
 (function (Cor) {
     Cor[Cor["Amarelo"] = 0] = "Amarelo";
     Cor[Cor["Vermelho"] = 100] = "Vermelho";

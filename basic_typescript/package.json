@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/felipeaamacedo/curso-typescript#readme",
   "dependencies": {
+    "@types/node": "^13.13.2",
     "live-server": "^1.2.1",
     "systemjs": "^0.21.6"
   },

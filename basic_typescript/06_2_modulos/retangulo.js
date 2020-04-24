@@ -1,14 +1,7 @@
-System.register([], function (exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    function areaRetangulo(base, altura) {
-        return base * altura;
-    }
-    exports_1("areaRetangulo", areaRetangulo);
-    return {
-        setters: [],
-        execute: function () {
-        }
-    };
-});
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function areaRetangulo(base, altura) {
+    return base * altura;
+}
+exports.default = areaRetangulo;
 //# sourceMappingURL=retangulo.js.map
