@@ -20,7 +20,7 @@ function echoMelhorado<TIPO>(objeto: TIPO):TIPO{
 }
 
 
-console.log(echoMelhorado('Jo?o').length)
+console.log(echoMelhorado('Joao').length)
 console.log(echoMelhorado<number>(27))
 console.log(echoMelhorado({ nome:'Joao', idade: 27}).nome)
 
@@ -34,4 +34,44 @@ notasDosAlunos.push(7.9)
 
 console.log(notasDosAlunos)
 
+// AULA 115 - Criando classes com generics
+//
+class OperacaoBinaria{
+	constructor(public operando1:any, public operando2:any){}
 
+	executar(){
+		return this.operando1 + this.operando2
+	}
+}
+
+
+console.log(new OperacaoBinaria('Bom ', 'dia').executar())
+console.log(new OperacaoBinaria(3,7).executar())
+
+//Operacao nao é exatamente o que gostaria, nao era para somar um number com string, nem dois object. O generics nesses casos fazem com que o transpilador veja o erro e reclame.
+console.log(new OperacaoBinaria(4, 'Bom ').executar())
+console.log(new OperacaoBinaria({ }, { }).executar())   
+
+
+//No caso acima a classe operacaobinaria tem alguns problemas na hora de fazer a soma, já que ela aceita qualquer tipo. Para mudar isso, é feita a utilização do Generics, criando uma classe que aceita diversos parâmetros, mas que precisa especificar antes.
+//
+//A abordagem utilizada é a criação de uma classe abstracta, e em seguida criada uma classe que extends dessa classe abstrata, e especifica o tipo  a ser utilizado.
+//
+abstract class OperacaoBinariaGenerics<T, R>{
+	constructor(public operador1:T, public operador2:T){}
+
+	abstract executar():R
+
+}
+
+class SomaBinaria extends OperacaoBinariaGenerics <number, number>{
+	executar(){
+		return this.operador1 + this.operador2
+	}
+}
+
+console.log(new SomaBinaria(33,4).executar())
+
+
+
+// DESAFIO SOMA DE DATAS
