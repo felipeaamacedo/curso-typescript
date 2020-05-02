@@ -17,8 +17,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //modulos são partes de códigos que ficam em arquivos secundários, que exportam códigos, para um arquivo principal que importa esses códigos. São usados quando é necessário modularizar o programa, com objetivo de facilitaro troubleshooting. São geralmente armazenados em uma pasta, com um arquivo principal e outros secundários, de mandeira que, nos arquivos secundários, cada função ou atributo ou variável/constante que seja necessário importar, é adicionado a palavra 'export' antes da inicialização dessas palavras. No arquivo principal, é utilizado o comando import { <oque_quer_que_importe> from './fonte_do_import', sendo neste caso para um módulo armazenado localmente.
 //import { areaRetangulo } from './retangulo'
 //import { areaCircunferencia } from './circunferencia'
-const retangulo_1 = __importDefault(require("./retangulo"));
-const circunferencia_1 = require("./circunferencia"); //mudar o nome que será chamado usando o 'as <nome desejado>'
+var retangulo_1 = __importDefault(require("./retangulo"));
+var circunferencia_1 = require("./circunferencia"); //mudar o nome que será chamado usando o 'as <nome desejado>'
 console.log('Estou no modulo.ts');
 console.log(retangulo_1.default(7, 8));
 console.log(circunferencia_1.areaCircunferencia(4));
@@ -44,7 +44,7 @@ console.log(circunferencia_1.areaCircunferencia(4));
 // essa propriedade do 'module' no TS config determina como o arquivo em JS será gerado. Se caso usarmos o es6, o arquivo gerado possui o padrão do es6 do JS. Entretanto o SystemJS não identifica. Para o SystemJS é necessário usar o commonjs.
 //AULA 94 - USANDO O PADRAO COMMONSJS (require / module.export)
 // estamos usando outro padrão de export import do node, que é o module.export -  no arquivo de export, e o require. 
-const { digaOi } = require('./novo');
+var digaOi = require('./novo').digaOi;
 console.log(digaOi('Ana'));
 //AULA 95 - NAMESPACES VS MODULOS
 //NAMESPACE
@@ -63,4 +63,3 @@ console.log(digaOi('Ana'));
 //*precisa de um loader para ir para o browser (transmiler systemjs ou webpack, gulp etc)
 //pros&cons:
 //*declaracao explicita de dependencias
-//# sourceMappingURL=modulos.js.map

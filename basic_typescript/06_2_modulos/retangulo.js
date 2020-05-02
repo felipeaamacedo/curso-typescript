@@ -4,4 +4,3 @@ function areaRetangulo(base, altura) {
     return base * altura;
 }
 exports.default = areaRetangulo;
-//# sourceMappingURL=retangulo.js.map

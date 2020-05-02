@@ -26,17 +26,17 @@ TOC
 // AULA 12 - TIPOS NUMÉRICOS E BOOLEANOS
 //string
 console.log("TIPO STRING");
-let nome = "João";
+var nome = "João";
 console.log(nome);
 //numbers
 console.log("TIPO NUMBER - Pode ser integer ou float");
-let integer = 25;
-let float = 10.5;
+var integer = 25;
+var float = 10.5;
 console.log("Este é um inteiro " + integer);
 console.log("Este é um float, numero com ponto, quebrado " + float);
 //boolean
 console.log("TIPO BOOLEAN");
-let vaiMudar = true;
+var vaiMudar = true;
 console.log(vaiMudar);
 // AULA 14 - ARRAY E TIPOS
 // There are two to write ARRAYS 
@@ -45,13 +45,13 @@ console.log(vaiMudar);
 // 
 // A diferença entre os dois é que o tipo array possui alguns metodos associados
 console.log("TIPO ARRAY");
-let hobbies = ['basketball', 'workout at the gym', 'photography', 'programming'];
-let list = [1, 2, 3, 4, 5];
+var hobbies = ['basketball', 'workout at the gym', 'photography', 'programming'];
+var list = [1, 2, 3, 4, 5];
 console.log(hobbies[0]);
 console.log(list[1]);
 // AULA 15 - TUPLAS
 // A Tupla é uma array com diferentes tipos de dados
-let endereco = ["av. rodrigo fernando grilo", 587];
+var endereco = ["av. rodrigo fernando grilo", 587];
 console.log("O Meu endereço é: " + endereco);
 // AULA 16 - ENUMS
 // ENUM
@@ -65,7 +65,7 @@ var Cor;
     Cor[Cor["Roxo"] = 4] = "Roxo";
     Cor[Cor["Cinza"] = 5] = "Cinza";
 })(Cor || (Cor = {}));
-let minhaCor = Cor.Cinza;
+var minhaCor = Cor.Cinza;
 console.log("Printing the value of minhaCor");
 console.log(minhaCor);
 console.log('Printing the color values of the list');
@@ -78,7 +78,7 @@ console.log(Cor.Cinza);
 // AULA 17 - O TIPO "ANY"
 //ANY
 //Is a way to make your variable to work in the same way as the JavaScript. It works this way because TS was made to be introduced stepwisely.
-let carro = 'BMW';
+var carro = 'BMW';
 console.log(carro); // This time it is a string
 carro = { marca: 'BMW', ano: 2019 };
 console.log(carro); // This time it is an object
@@ -102,9 +102,9 @@ function multiplicar(numA, numB) {
 console.log(multiplicar(2, 5));
 // AULA 20 - FUNÇÕES COMO TIPO
 //No TS ou JS tem a possibilidade de atribuir uma função a uma variável.
-let dividePorDois = function (a, b) {
-    let c = a * b;
-    let resto = c % 2; // símbolo % quer dizer o REMAINDER ou seja o resto da divisão de C por 2.
+var dividePorDois = function (a, b) {
+    var c = a * b;
+    var resto = c % 2; // símbolo % quer dizer o REMAINDER ou seja o resto da divisão de C por 2.
     if (resto == 0) {
         return true;
     }
@@ -117,14 +117,14 @@ console.log("O valor é divisível por 2? " + dividePorDois(3, 5));
 // Arrow funciona para falar que uma variável é do tipo função
 // let calculo <cria uma variável> : <:depois da variável que indica o tipo, como vem antes de um parênteses, o TypeScript entende que essa variável é do tipo função) (<input da função> x:number, y:number) => <valor que a função retorna> return.
 // Esse tipo função só é utilizado quando essa variável que é do tipo função recebe uma variável exatamente igual ao tipo que você atribuiu, como é o caso da função multiplicar.
-let calculo;
+var calculo;
 //Ao definir uma variável como uma função, da forma como está acima, é importante pois quando atribuir uma função específica para ela, ela só vai aceitar funções iguais aos tipos atribuidos, ou seja, uma função como "multiplicar", ao tentar atribuir a função "digaOi" por exemplo, o TS pega um erro.
 calculo = multiplicar;
 console.log(calculo(5, 6));
 //AULA 21 - TIPO OBJETOS
 //OBJECTS
 //The correct way to infere the type of data in an object is saying the type of data before the values, as seen bellow.
-let usuario = {
+var usuario = {
     nome: 'João',
     idade: 27,
 };
@@ -139,10 +139,10 @@ console.log(usuario.nome);
         -> Ponto normal (<=8)
         -> Fora do horário (>8)
 */
-let funcionario = {
+var funcionario = {
     supervisores: ['carlos', 'roberto', 'heitor'],
     baterPonto: function baterPonto(horaEntrada, horaSaida) {
-        let horaTrabalho = horaSaida - horaEntrada;
+        var horaTrabalho = horaSaida - horaEntrada;
         if (horaTrabalho <= 8) {
             return 'Ponto normal';
         }
@@ -153,10 +153,10 @@ let funcionario = {
 };
 console.log(funcionario.supervisores);
 console.log(funcionario.baterPonto(7, 10));
-let funcionario2 = {
+var funcionario2 = {
     supervisores: ['carlos', 'roberto', 'heitor'],
     baterPonto: function baterPonto(horaEntrada, horaSaida) {
-        let horaTrabalho = horaSaida - horaEntrada;
+        var horaTrabalho = horaSaida - horaEntrada;
         if (horaTrabalho <= 8) {
             return 'Ponto normal';
         }
@@ -165,10 +165,10 @@ let funcionario2 = {
         }
     }
 };
-let funcionario3 = {
+var funcionario3 = {
     supervisores: ['carlos', 'roberto', 'heitor'],
     baterPonto: function baterPonto(horaEntrada, horaSaida) {
-        let horaTrabalho = horaSaida - horaEntrada;
+        var horaTrabalho = horaSaida - horaEntrada;
         if (horaTrabalho <= 8) {
             return 'Ponto normal';
         }
@@ -179,17 +179,17 @@ let funcionario3 = {
 };
 // AULA 25 - MÚLTIPLOS COM UNION TYPES
 // esse tipo é para ser usado quando você quer que mais de um tipo de dado seja aceito, mas não todos, como acontece no tipo any. Um exemplo seria poder aceitar number e string mas não boolean. 
-let nota;
+var nota;
 nota = 10;
-console.log(`Minha nota é ${nota}`);
+console.log("Minha nota \u00E9 " + nota);
 nota = "Dez";
-console.log(`Minha nota é ${nota}`);
+console.log("Minha nota \u00E9 " + nota);
 //  nota = true   // <= nesse caso não é aceito
 // AULA 26 - CHECANDO TIPOS NO RUNTIME
 // checando variáveis de forma manual
-let valor = 10;
+var valor = 10;
 // esse código abaixo não é necessário quando se usa o TypeScript, pois só de colocar o mouse em cima já é possível saber o tipo. Entretanto, é uma maneira de saber o tipo quando é preciso entrar no "mundo JavaScript"
-console.log(`É um ${typeof valor}!`);
+console.log("\u00C9 um " + typeof valor + "!");
 // AULA 27 - TIPO NEVER
 // o tipo "never" é quando você quer dizer que ela nunca vai voltar, como quando entra num loop infinito ou entra num tipo de erro. Diferentemente de AUSENCIA de retorno, quando é usado com o tipo "void".
 function falha(msg) {
@@ -197,10 +197,10 @@ function falha(msg) {
         throw new Error(msg); //lançar um erro, com a mensagem.
     }
 }
-const produto = {
+var produto = {
     nome: 'Sabão',
     preco: 4,
-    validarProduto() {
+    validarProduto: function () {
         if (!this.nome || this.nome.trim().length == 0) {
             falha("Precisa ter um nome");
         }
@@ -212,11 +212,11 @@ const produto = {
 produto.validarProduto();
 // AULA 28 - VALORES OPCIONAIS COM TIPO "NULL"
 // garantia do TypeScript que o usuário irá inserir algum valor
-let altura = 12;
+var altura = 12;
 // altura = null; //comando gera erro
-let alturaOpcional = 12;
+var alturaOpcional = 12;
 alturaOpcional = null; //Comando aceita null, pois temos um Union Type
-const contato1 = {
+var contato1 = {
     nome: 'Felipe',
     tell1: '992824882',
     tell2: null
@@ -225,24 +225,23 @@ console.log(contato1.nome);
 console.log(contato1.tell1);
 console.log(contato1.tell2);
 // let podeSerNulo:null = null //Não faz sentido ter uma variável que só aceite o tipo null, não tem aplicação em projetos, somente quando é um UNION TYPE, como é o caso do TELL2, que o usuário pode colocar uma string, ou não colocar nada
-let podeSerNulo = null;
+var podeSerNulo = null;
 podeSerNulo = 12;
 console.log(podeSerNulo);
 podeSerNulo = "Heyy";
 console.log(podeSerNulo);
 podeSerNulo = null;
 console.log(podeSerNulo);
-let contaBancaria = {
+var contaBancaria = {
     saldo: 3456,
-    depositar(valor) {
+    depositar: function (valor) {
         this.saldo += valor;
     }
 };
-let correntista = {
+var correntista = {
     nome: 'Ana Silva',
     contaBancaria: contaBancaria,
     contatos: ['34567890', '98765432']
 };
 correntista.contaBancaria.depositar(6000);
 console.log(correntista);
-//# sourceMappingURL=tipo.js.map

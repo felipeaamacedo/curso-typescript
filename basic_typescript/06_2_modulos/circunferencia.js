@@ -5,4 +5,3 @@ function areaCircunferencia(raio) {
     return Math.pow(raio, 2) * exports.PI;
 }
 exports.areaCircunferencia = areaCircunferencia;
-//# sourceMappingURL=circunferencia.js.map

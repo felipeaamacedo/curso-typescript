@@ -33,7 +33,6 @@ var space = '-----------------------------';
 console.log(changeChapter);
 console.log(space);
 // Início dos exercícios do capítulo.
-let a = 'To no TypeScript com direito a servidor ao vivo, bitchessss!!';
+var a = 'To no TypeScript com direito a servidor ao vivo, bitchessss!!';
 console.log(a);
-let b = 5;
-//# sourceMappingURL=basico.js.map
+var b = 5;
