@@ -6,10 +6,10 @@
 function echo(objeto) {
     return objeto;
 }
-console.log(echo('Jo?o').lenght);
+console.log(echo('Joao').lenght);
 console.log(echo(27).lenght);
-console.log(echo({ nome: 'Jo?o', idade: 27 }));
-// AULA 111 - CRIANDO UMA FUN??O COM GENERICS
+console.log(echo({ nome: 'Joao', idade: 27 }));
+// AULA 111 - CRIANDO UMA FUNÇÃO COM GENERICS
 // SINTAX: function nomeDaFuncao <nomeTIpo>(input:nomeTipo):nomeTipo.
 // no caso o <nomeTipo> usado por padr?o tipo. O generics permite voc? criar um tipo dessa forma que ? definido posteriormente durante o c?digo o tipo ? definido. 
 function echoMelhorado(objeto) {
@@ -58,4 +58,21 @@ class SomaBinaria extends OperacaoBinariaGenerics {
 }
 console.log(new SomaBinaria(33, 4).executar());
 // DESAFIO SOMA DE DATAS
+//
+class TDiferencaEntreDatas extends OperacaoBinariaGenerics {
+    dataToTime(data) {
+        let { dia, mes, ano } = data;
+        return new Date(`${mes}/${dia}/${ano}`).getTime();
+    }
+    executar() {
+        let tempo1 = this.dataToTime(this.operador1);
+        let tempo2 = this.dataToTime(this.operador2);
+        let diferencaTempo = Math.abs(tempo1 - tempo2);
+        let diferencaDia = Math.ceil(diferencaTempo / (1000 * 60 * 60 * 24));
+        return `${diferencaDia} dias(s)`;
+    }
+}
+let data1 = new TData(3, 4, 1990);
+let data2 = new TData(10, 4, 1990);
+console.log(new TDiferencaEntreDatas(data1, data2).executar());
 //# sourceMappingURL=generics.js.map

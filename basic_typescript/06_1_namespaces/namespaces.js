@@ -10,7 +10,7 @@
 //
 var Areas;
 (function (Areas) {
-    var PI = 3.14;
+    const PI = 3.14;
     function circunferencia(raio) {
         return PI * Math.pow(raio, 2);
     }
@@ -25,9 +25,9 @@ console.log(Areas.retangulo(2, 4));
 //NAMESPACES ANINHADOS (um namespace dentro de outro)
 var Geometria;
 (function (Geometria) {
-    var Areas;
+    let Areas;
     (function (Areas) {
-        var PI = 3.14;
+        const PI = 3.14;
         function circunferencia(raio) {
             return PI * Math.pow(raio, 2);
         }
@@ -44,3 +44,4 @@ console.log(Geometria.Areas.circunferencia(2));
 ///<reference path="geometriaCirc.ts"/>
 ///<reference path="geometriaRect.ts"/>
 console.log(GeometriaMultArq.Areas.circunferencia(10));
+//# sourceMappingURL=namespaces.js.map

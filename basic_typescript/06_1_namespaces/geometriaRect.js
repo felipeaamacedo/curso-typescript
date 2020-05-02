@@ -1,7 +1,7 @@
 "use strict";
 var GeometriaMultArq;
 (function (GeometriaMultArq) {
-    var Areas;
+    let Areas;
     (function (Areas) {
         function retangulo(base, altura) {
             return base * altura;
@@ -9,3 +9,4 @@ var GeometriaMultArq;
         Areas.retangulo = retangulo;
     })(Areas = GeometriaMultArq.Areas || (GeometriaMultArq.Areas = {}));
 })(GeometriaMultArq || (GeometriaMultArq = {}));
+//# sourceMappingURL=geometriaRect.js.map

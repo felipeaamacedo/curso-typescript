@@ -15,47 +15,32 @@
 // 12. Desafio do Módulo
 // 13. Conclusão
 //
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 //
 //AULA 63 - CLASSES & ATRIBUTOS PART 1
-var TData = /** @class */ (function () {
+class TData {
     //CRIAÇÂO DO CONSTRUTOR PARA CRIAR A CLASSE palavra constructor(atributos que devem ser atribuidos como parâmetros inicializadores){abre e fecha chaves, com os inicializadores this.atributo = atributo}
-    function TData(dia, mes, ano) {
+    constructor(dia, mes, ano) {
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
     }
-    return TData;
-}());
+}
 //CRIAÇÃO DE OBJETOS INSTANCIANDO CLASSES
 //primeiro você cria uma variável||constante e depois você com a palavra "new" antes, cria o objeto usando o pŕoprio nome da classe e o construtor com os atributos.  
-var aniversario = new TData(16, 5, 1991);
+const aniversario = new TData(16, 5, 1991);
 console.log(aniversario);
 aniversario.mes = 4;
 console.log(aniversario);
 //METODO DE CRIAÇÃO DE CLASSES SEM PRECISAR COLOCAR OS INICIALIZAR OS ATRIBUTOS DENTRO DO CONSTRUCTOR
 //ao colocar os atributos dentro do parênteses, antes de escrever o atributo, colocar a palavra public||private.
-var TDataEsperta = /** @class */ (function () {
-    function TDataEsperta(dia, mes, ano) {
+class TDataEsperta {
+    constructor(dia, mes, ano) {
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
     }
-    return TDataEsperta;
-}());
-var casamento = new TDataEsperta(13, 9, 2020);
+}
+const casamento = new TDataEsperta(13, 9, 2020);
 console.log(casamento);
 casamento.mes = 7;
 console.log(casamento);
@@ -64,55 +49,51 @@ console.log(casamento);
 //Criar o construtor
 //OBS 1: Desconto é opcional (valor padrão 0)
 //OBS 2: Criar 2 produtos: passando dois e três params
-var TProduto = /** @class */ (function () {
-    function TProduto(nome, preco, desconto) {
-        if (desconto === void 0) { desconto = 0; }
+class TProduto {
+    constructor(nome, preco, desconto = 0) {
         this.nome = nome;
         this.preco = preco;
         this.desconto = desconto;
         this.precoDesconto = this.preco * (1 - this.desconto);
     }
-    return TProduto;
-}());
-var banana = new TProduto('banana', 2);
+}
+const banana = new TProduto('banana', 2);
 console.log(banana);
-var laranja = new TProduto('laranja', 4, 0.10);
+const laranja = new TProduto('laranja', 4, 0.10);
 console.log(laranja);
 //AULA 67 - CLASSES & METODOS
 //é o nome dado a funções que estão dentro de uma classe.
-var TProduto2 = /** @class */ (function () {
-    function TProduto2(nome, preco, desconto) {
+class TProduto2 {
+    constructor(nome, preco, desconto) {
         this.nome = nome;
         this.preco = preco;
         this.desconto = desconto;
     }
-    TProduto2.prototype.resumo = function () {
-        return this.nome + " custa " + this.preco + " com um desconto de " + this.desconto * 100 + "%";
-    };
-    return TProduto2;
-}());
-var prod1 = new TProduto2('Caneta BIC', 0.80, 0.10);
+    resumo() {
+        return `${this.nome} custa ${this.preco} com um desconto de ${this.desconto * 100}%`;
+    }
+}
+const prod1 = new TProduto2('Caneta BIC', 0.80, 0.10);
 console.log(prod1.resumo());
 //Desafio CLASSES & METODOS
 //Criar método precoComDesconto
 //Quais são os parâmetros e o retorno
 //Alterar método resumo para mostrar o preço com desconto
 //
-var TProduto3 = /** @class */ (function () {
-    function TProduto3(nome, preco, desconto) {
+class TProduto3 {
+    constructor(nome, preco, desconto) {
         this.nome = nome;
         this.preco = preco;
         this.desconto = desconto;
     }
-    TProduto3.prototype.precoComDesconto = function () {
+    precoComDesconto() {
         return this.preco * (1 - this.desconto);
-    };
-    TProduto3.prototype.resumo = function () {
-        return this.nome + " custa " + this.preco + " com um desconto de " + this.desconto * 100 + "% o pre\u00E7o se torna " + this.precoComDesconto();
-    };
-    return TProduto3;
-}());
-var prod2 = new TProduto3('Caneca Star Wars', 4.50, 0.10);
+    }
+    resumo() {
+        return `${this.nome} custa ${this.preco} com um desconto de ${this.desconto * 100}% o preço se torna ${this.precoComDesconto()}`;
+    }
+}
+const prod2 = new TProduto3('Caneca Star Wars', 4.50, 0.10);
 console.log(prod2.resumo());
 //AULA 70 - MODIFICADORES DE ACESSO (PUBLIC, PRIVATE, PROTECTED)
 //são as tags public e private que são colocadas quando se deseja deixar alguns parametos ocultos(private) ou não (public) para os usuários no frontend, no caso dos parametros protected, eles são parametros com o comportamento privado, que entretanto são transmitidos para outras classes que herdam atributos/metodos da classe pai. São colocados antes dos atributos das classes, como no exemplo: private velocidadeAtual:number = 0.
@@ -125,16 +106,15 @@ console.log(prod2.resumo());
 //
 //OBS: Apesar desses tipos de modificadores de acesso existirem no TS, no JS eles não existem, então caso o noEmitOnError estiver = false, apesar de errado no TS, o arquivo JS será gerado, e mesmo tentando acessar o atributo privado no TS e gerando um erro, o erro irá aparecer no browser, pois o JS é gerado de qualquer forma.
 //
-var TCarro = /** @class */ (function () {
-    function TCarro(marca, modelo, velocidadeMaxima) {
-        if (velocidadeMaxima === void 0) { velocidadeMaxima = 200; }
+class TCarro {
+    constructor(marca, modelo, velocidadeMaxima = 200) {
         this.marca = marca;
         this.modelo = modelo;
         this.velocidadeMaxima = velocidadeMaxima;
         this.velocidadeAtual = 0;
     }
-    TCarro.prototype.alterarVelocidade = function (delta) {
-        var novaVelocidade = this.velocidadeAtual + delta;
+    alterarVelocidade(delta) {
+        const novaVelocidade = this.velocidadeAtual + delta;
         if (novaVelocidade <= this.velocidadeMaxima && novaVelocidade >= 0) {
             this.velocidadeAtual = novaVelocidade;
         }
@@ -142,40 +122,37 @@ var TCarro = /** @class */ (function () {
             this.velocidadeAtual >= this.velocidadeMaxima ? this.velocidadeAtual : this.velocidadeAtual = 0;
         }
         return this.velocidadeAtual;
-    };
-    TCarro.prototype.acelerar = function () {
+    }
+    acelerar() {
         return this.alterarVelocidade(+5);
-    };
-    TCarro.prototype.frear = function () {
+    }
+    frear() {
         return this.alterarVelocidade(-5);
-    };
-    return TCarro;
-}());
-var carro1 = new TCarro('Ford', 'Fiesta', 130);
-Array(50).fill(0).forEach(function () { return carro1.frear(); }); //O forEach tem como input uma function que é aplicada em todos os campos do Array.
-console.log("VELOCIDADE ATUAL: " + carro1.frear());
+    }
+}
+let carro1 = new TCarro('Ford', 'Fiesta', 130);
+Array(50).fill(0).forEach(() => carro1.frear()); //O forEach tem como input uma function que é aplicada em todos os campos do Array.
+console.log(`VELOCIDADE ATUAL: ${carro1.frear()}`);
 //AULA 70 - HERANÇA
 //é a capacidade da OOP de reutilizar códigos. Onde uma classe é composta por outra classe, reutilizando o código de outra classe. Ex. Classe TRobo tem dentro Classe TJuntas. É utilizado quando uma classe usa atributos de outra classe no seu código. A herança é criada ao utilizar a palavra 'extends' seguido da classe que ela herda atributos, exemplo
 //
 //class <classe filha> extends <classe pai>
 //
 //class TRobo extends TJunta
-var TFerrari = /** @class */ (function (_super) {
-    __extends(TFerrari, _super);
+class TFerrari extends TCarro {
     //como a marca do construtor TCarro vai ser sempre ferrari podemos criar um novo construtor enviando somente 2 atributos, modelo e velocidadeMaxima. Para isso criamos um novo construtor, com os 2 parâmetros de entrada, e usamos dentro dele o parâmetro super() é como você estivesse chamando o construtor PAI e inserindo seus atributos. No caso ferrari, serão 'Ferrari', modelo, e velocidadeMaxima, sendo esses dois últimos inseridos ao criar uma FERRARI.
-    function TFerrari(modelo, velocidadeMaxima) {
-        return _super.call(this, 'Ferrari', modelo, velocidadeMaxima) || this;
+    constructor(modelo, velocidadeMaxima) {
+        super('Ferrari', modelo, velocidadeMaxima);
     }
-    TFerrari.prototype.acelerar = function () {
+    acelerar() {
         return this.alterarVelocidade(+20);
-    };
-    TFerrari.prototype.frear = function () {
+    }
+    frear() {
         return this.alterarVelocidade(-15);
-    };
-    return TFerrari;
-}(TCarro));
-var f40 = new TFerrari('F40', 324);
-console.log(f40.marca + " " + f40.modelo);
+    }
+}
+const f40 = new TFerrari('F40', 324);
+console.log(`${f40.marca} ${f40.modelo}`);
 console.log(f40.acelerar());
 console.log(f40.frear());
 // AULA 73 - GETTERS AND SETTERS
@@ -183,25 +160,20 @@ console.log(f40.frear());
 //
 // uma vantagem da variável get e set no TS, JS em relação às outras linguagens, é que você não precisa ficar criando diversos get set para todos os atributos, você utiliza somente nas necessárias, quando esse atributo requer algum tipo de validação. Ainda, se durante o desenvolvimento você descobrir que algum get/set precisa ser criado, você pode facilmente criar adicionando o get ou set na frente, mas sem ter que mudar em todo o código a estrutura de chamada, já que o pessoa1.idade, não precisa ser alterado para pessoa1.getIdade por exemplo.
 //
-var TPessoa = /** @class */ (function () {
-    function TPessoa() {
+class TPessoa {
+    constructor() {
         this._idade = 0;
     }
-    Object.defineProperty(TPessoa.prototype, "idade", {
-        get: function () {
-            return this._idade;
-        },
-        set: function (valor) {
-            if (valor >= 0 && valor <= 120) {
-                this._idade = valor;
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return TPessoa;
-}());
-var pessoa1 = new TPessoa;
+    get idade() {
+        return this._idade;
+    }
+    set idade(valor) {
+        if (valor >= 0 && valor <= 120) {
+            this._idade = valor;
+        }
+    }
+}
+const pessoa1 = new TPessoa;
 pessoa1.idade = 10;
 console.log(pessoa1.idade);
 pessoa1.idade = -3;
@@ -209,105 +181,76 @@ console.log(pessoa1.idade);
 //AULA 74 - MEMBROS ESTÁTICOS
 //quando estático o  tributo/método é da classe e não da instância, desta forma a classe tem um papel maior, pois não é necessário criar uma instância para poder usar os métodos. É utilizado quando se trabalha com criação de classes que não tem a necessidade de criar uma instância para usar os atributos/métodos. Um exemplo seria uma biblioteca de funções matemáticas, como a Math. Para declarar um membro estático, é necessário, somente adicionar a palavra 'static' antes do atributo/metodo.
 //
-var Matematica = /** @class */ (function () {
-    function Matematica() {
+class Matematica {
+    constructor() {
         this.PI = 3.14;
     }
-    Matematica.prototype.areaCirc = function (raio) {
+    areaCirc(raio) {
         return this.PI * Math.pow(raio, 2);
-    };
-    return Matematica;
-}());
-var mat = new Matematica;
-console.log("ÁREA DO CIRCULO CRIANDO INSTANCIA COM MATEMATICA: " + mat.areaCirc(2));
-var MatematicaEstatico = /** @class */ (function () {
-    function MatematicaEstatico() {
     }
-    MatematicaEstatico.areaCirc = function (raio) {
+}
+let mat = new Matematica;
+console.log("ÁREA DO CIRCULO CRIANDO INSTANCIA COM MATEMATICA: " + mat.areaCirc(2));
+class MatematicaEstatico {
+    static areaCirc(raio) {
         return this.PI * Math.pow(raio, 2);
-    };
-    MatematicaEstatico.PI = 3.14;
-    return MatematicaEstatico;
-}());
+    }
+}
+MatematicaEstatico.PI = 3.14;
 console.log("ÁREA DO CIRCULO COM MATEMÁTICAESTÁTICO: " + MatematicaEstatico.areaCirc(2));
 //AULA 75 - CLASSE ABSTRATA
 //é um conceito em OOP onde uma classe é criada mas não serve para ser instanciada, somente usada como classe PAI de outras classes que essas sim serão instanciadas. É especifico do Typescript, não está presente no JS mas está em outras linguagens de programação mais baixo nível (C++, Object PASCAL, JAVA etc...).  É utilizada quando necessita criar uma classe que não tem como objetivo ser instanciada e no caso nem é possível ser instanciada, mas ser a classe PAI de outras classes. É utilizada como template geral, por exemplo, Garrafa de café, garrafas de café tem vários tipos e formatos, que as vezes funcionam de maneira diferente, exemplo garrafa de bomba e garrafa de tampa, com isso você consegue criar funções inacabadas, como exemplo um método colocarCafe que deve ser discriminado em suas classes filhas. Essa classe é criada simplesmente adicionando a palavra 'abstract' antes do 'class', e os métodos abstratos podem ser discriminados escrevendo, da mesma forma, 'abstract' antes, e sem abrir e fechar chaves.  
 //
 //polimorfismo - uma classe tem várias formas, aquela classe Calculo tem uma hora forma de Soma, outra hora de Multiplicação, etc...
-var TCalculo = /** @class */ (function () {
-    function TCalculo() {
+class TCalculo {
+    constructor() {
         this._resultado = 0;
     }
-    Object.defineProperty(TCalculo.prototype, "resultado", {
-        get: function () {
-            return this._resultado;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return TCalculo;
-}());
-var TSoma = /** @class */ (function (_super) {
-    __extends(TSoma, _super);
-    function TSoma() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    get resultado() {
+        return this._resultado;
     }
-    TSoma.prototype.executar = function () {
-        var numeros = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            numeros[_i] = arguments[_i];
-        }
-        this._resultado = numeros.reduce(function (total, adicionando) { return total + adicionando; });
-    };
-    return TSoma;
-}(TCalculo));
-var TMultiplicacao = /** @class */ (function (_super) {
-    __extends(TMultiplicacao, _super);
-    function TMultiplicacao() {
-        return _super !== null && _super.apply(this, arguments) || this;
+}
+class TSoma extends TCalculo {
+    executar(...numeros) {
+        this._resultado = numeros.reduce((total, adicionando) => total + adicionando);
     }
-    TMultiplicacao.prototype.executar = function () {
-        var numeros = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            numeros[_i] = arguments[_i];
-        }
-        this._resultado = numeros.reduce(function (total, adicionando) { return total * adicionando; });
-    };
-    return TMultiplicacao;
-}(TCalculo));
-var c1 = new TSoma;
+}
+class TMultiplicacao extends TCalculo {
+    executar(...numeros) {
+        this._resultado = numeros.reduce((total, adicionando) => total * adicionando);
+    }
+}
+let c1 = new TSoma;
 c1.executar(2, 3, 4, 5);
-console.log("O RESULTADO DA SOMA DE 2,3,4,5 \u00C9 " + c1.resultado);
+console.log(`O RESULTADO DA SOMA DE 2,3,4,5 É ${c1.resultado}`);
 c1 = new TMultiplicacao;
 c1.executar(2, 3, 4, 5);
-console.log("O RESULTADO DA MULTIPLICA\u00C7\u00C3O DE 2,3,4,5 \u00C9 " + c1.resultado);
+console.log(`O RESULTADO DA MULTIPLICAÇÃO DE 2,3,4,5 É ${c1.resultado}`);
 // AULA 76 - CONSTRUTOR PRIVADO & SINGLETON
 // O singleton é utilizado quando você quer trabalhar com uma única instância, mas que ao mesmo tempo você gostaria de receber métodos e atributos de uma outra classe com a propriedade de herança. Criar uma classe com um número definido de instancias criadas. 
-var TUnico = /** @class */ (function () {
-    function TUnico() {
-    }
-    TUnico.getInstance = function () {
+class TUnico {
+    constructor() { }
+    static getInstance() {
         return TUnico.instance;
-    };
-    TUnico.prototype.agora = function () {
+    }
+    agora() {
         return new Date;
-    };
-    TUnico.instance = new TUnico;
-    return TUnico;
-}());
+    }
+}
+TUnico.instance = new TUnico;
 console.log(TUnico.getInstance().agora());
 //AULA 77 - Atributos somente leitura
 //
-var TAviao = /** @class */ (function () {
-    function TAviao(modelo, prefixo) {
+class TAviao {
+    constructor(modelo, prefixo) {
         this.prefixo = prefixo;
         this.modelo = modelo;
     }
-    return TAviao;
-}());
-var turboHelice = new TAviao('Tu-114', 'PT-ABC');
+}
+const turboHelice = new TAviao('Tu-114', 'PT-ABC');
 //Nesse caso se eu tentar mudar os atributos modelo e prefixo, o TS gera um erro, para alertar que esses atributos são do tipo readonly. Se o atributo noEmitOnError estiver false, o JS será gerado e essa alteração será visualizada no Browser, entretanto, se estiver true, o TS não será gerado.
 //
 //turboHelice.modelo = 'DC-8'
 //turboHelice.prefixo = 'PT-DEF'
 console.log(turboHelice);
+//# sourceMappingURL=classes.js.map
