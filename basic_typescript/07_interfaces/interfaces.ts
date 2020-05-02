@@ -4,7 +4,7 @@
 //
 //
 //INTERFACE
-//um contrato, você define o que está dentro da interface e o objeto precisa está de acordo com a interface
+//é uma obrigação que você define de para que variaveis/constantes, funções e classes, atendam o que você predefiniu de acordo com a interface.
 
 
 interface Humano {
@@ -58,3 +58,69 @@ meuCliente.nome = 'Han'
 saudarComOla(meuCliente)
 meuCliente.saudar('Solo')
 console.log(meuCliente.ultimaCompra)
+
+
+//AULA 103 - INTERFACES E TIPO FUNÇÃO
+//a interface em funções é a 'assinatura' da função, no caso a função deverá seguir a interface.
+
+interface FuncaoCalculo{
+	(a:number, b:number):number
+}
+
+
+let potencia: FuncaoCalculo
+
+potencia = (base: number, exp: number):number =>  base**exp
+console.log('POTENCIA DE 2 NA BASE 3 EM 1 LINHA: ' + potencia(3,2))
+
+
+//AULA 104 - HERANÇA COM INTERFACES
+// classes IMPLEMENTS interfaces
+// classes EXTENDS classes
+// interfaces EXTENDS interfaces
+//
+// mesmo nome extends - nome diferente implements
+// classes abstratas que implementam interfaces, precisam que os métodos da inferfaces sejam implementadas.
+
+
+interface A {
+	a():void
+}
+
+interface B {
+	b():void
+}
+
+interface ABC extends A, B {
+	c(): void
+}
+
+class RealA implements A {
+	a():void{}
+}
+
+class RealAB implements A, B {
+	a():void{}
+	b():void{}
+}
+
+class RealABC implements ABC{
+	a():void{}
+	b():void{}
+	c():void{}
+}
+
+abstract class AbstrataABD implements A, B{
+	a():void{}
+	b():void{}
+	abstract d():void
+}
+
+
+// AULA - 105 - COMO INTERFACE É TRADUZIDA PARA JS
+// o implements é um recurso que está presente somente no TS, serve apenas para checar as variáveis, não está presente no JS.
+
+// AULA 106 - USO DE INTERFACES PARA EXTENDER OBJECT
+// funciona para poder facilitar um exemplo o console.log escrevendo x.log
+//
+

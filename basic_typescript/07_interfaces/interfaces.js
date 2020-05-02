@@ -5,7 +5,7 @@
 //
 //
 //INTERFACE
-//um contrato, você define o que está dentro da interface e o objeto precisa está de acordo com a interface
+//é uma obrigação que você define de para que variaveis/constantes, funções e classes, atendam o que você predefiniu de acordo com a interface.
 function saudarComOla(pessoa) {
     console.log('Olá, ' + pessoa.nome);
 }
@@ -43,4 +43,28 @@ meuCliente.nome = 'Han';
 saudarComOla(meuCliente);
 meuCliente.saudar('Solo');
 console.log(meuCliente.ultimaCompra);
+let potencia;
+potencia = (base, exp) => Math.pow(base, exp);
+console.log('POTENCIA DE 2 NA BASE 3 EM 1 LINHA: ' + potencia(3, 2));
+class RealA {
+    a() { }
+}
+class RealAB {
+    a() { }
+    b() { }
+}
+class RealABC {
+    a() { }
+    b() { }
+    c() { }
+}
+class AbstrataABD {
+    a() { }
+    b() { }
+}
+// AULA - 105 - COMO INTERFACE É TRADUZIDA PARA JS
+// o implements é um recurso que está presente somente no TS, serve apenas para checar as variáveis, não está presente no JS.
+// AULA 106 - USO DE INTERFACES PARA EXTENDER OBJECT
+// funciona para poder facilitar um exemplo o console.log escrevendo x.log
+//
 //# sourceMappingURL=interfaces.js.map
