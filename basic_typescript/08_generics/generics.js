@@ -1,6 +1,6 @@
 "use strict";
 //TIPO GENERICS
-//? um outro tipo que substitui o ANY, e ? utilizado quando precisa ter alguma fun??o ou vari?vel mais gen?rica, mas que mesmo assim passe pelo transpiler do TS. 
+//É um outro tipo que substitui o ANY, e é utilizado quando precisa ter alguma fun??o ou vari?vel mais gen?rica, mas que mesmo assim passe pelo transpiler do TS. 
 //
 //
 function echo(objeto) {
@@ -73,6 +73,74 @@ class TDiferencaEntreDatas extends OperacaoBinariaGenerics {
     }
 }
 let data1 = new TData(3, 4, 1990);
-let data2 = new TData(10, 4, 1990);
+let data2 = new TData(5, 4, 1990);
 console.log(new TDiferencaEntreDatas(data1, data2).executar());
+//AULA 118 - Desafio classe fila
+//Atributo: fila (Array)
+//Métodos: entrar, proximo, imprimir
+//
+class TFila {
+    constructor(...args) {
+        this.fila = args;
+    }
+    entrarNaFila(nome) {
+        this.fila.push(nome);
+    }
+    proximoDaFila() {
+        if (this.fila.length >= 0 && this.fila[0]) {
+            console.log(this.fila[0]);
+            this.fila.reverse();
+            this.fila.pop();
+            this.fila.reverse();
+        }
+        else {
+            console.log(null);
+        }
+    }
+    imprimirFila() {
+        console.log(this.fila);
+    }
+}
+let filaDoBanco = new TFila("Caio", "Fernanda", "Rafael", "Lucas");
+filaDoBanco.imprimirFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.imprimirFila();
+filaDoBanco.entrarNaFila("Larissa");
+filaDoBanco.imprimirFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+filaDoBanco.proximoDaFila();
+//AULA 120 Restrições (Constraints)
+//restrição de tipos que vão ser chamados no generics
+//sintax: exemplo  <T extends number|string> 
+//AULA 121: Desafio do módulo
+//Array de Objetos (Chave/Valor) --> itens
+//Métodos: obter(Chave), colocar({ C,V }), limpar(), imprimir()
+//
+class Mapa {
+    constructor(chave, valor) {
+        this.chave = chave;
+        this.valor = valor;
+    }
+    obter(chave) {
+    }
+}
+const mapa = new Mapa();
+mapa.colocar({ chave: 1, valor: 'Pedro' });
+mapa.colocar({ chave: 2, valor: 'Rebeca' });
+mapa.colocar({ chave: 3, valor: 'Maria' });
+mapa.colocar({ chave: 1, valor: 'Gustavo' });
+console.log(mapa.obter(2));
+mapa.imprimir();
+mapa.limpar();
+mapa.imprimir();
 //# sourceMappingURL=generics.js.map
