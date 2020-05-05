@@ -1,3 +1,14 @@
+//TOC
+//1. O que o tipo generics
+//2. Por que usar o generics?
+//3. Criando função com generics
+//4. Usando generics com array
+//5. Criando classes com generics
+//6. Desafio generics
+//7. Restrições (Constraints)
+//8. Desafio do módulo
+//
+
 //TIPO GENERICS
 //É um outro tipo que substitui o ANY, e é utilizado quando precisa ter alguma fun??o ou vari?vel mais gen?rica, mas que mesmo assim passe pelo transpiler do TS. 
 //
@@ -25,12 +36,12 @@ console.log(echoMelhorado<number>(27))
 console.log(echoMelhorado({ nome:'Joao', idade: 27}).nome)
 
 //AULA 112-113: ARRAY COM GENERICS
-//o generics ? gen?rico do ponto de vista da pessoa que est? construindo, uma vez que ele constroi a fun??o tendo em vista o usu?rio especificar o tipo ao usar. Isso ? uma forma de fortalecer o que o o usu?rio ir? usar.
+//o generics é genérico do ponto de vista da pessoa que está construindo, uma vez que ele constroi a função tendo em vista o usuário especificar o tipo ao usar. Isso é uma forma de fortalecer o que o o usuario irá usar.
 
 let notasDosAlunos: Array<number> = [5.5, 7.1, 8.2]
 notasDosAlunos.push(9.0)
 notasDosAlunos.push(7.9)
-//notasDosAlunos.push('8.4') //neste caso temos um erro pois o usu?rio especificou um tipo para a fun??o generics Array.
+//notasDosAlunos.push('8.4') //neste caso temos um erro pois o usuário especificou um tipo para a função generics Array.
 
 console.log(notasDosAlunos)
 
@@ -100,7 +111,6 @@ let data2 = new TData(5,4,1990)
 
 console.log(new TDiferencaEntreDatas(data1, data2).executar()) 
 
-
 //AULA 118 - Desafio classe fila
 //Atributo: fila (Array)
 //Métodos: entrar, proximo, imprimir
@@ -166,20 +176,32 @@ filaDoBanco.proximoDaFila()
 //Array de Objetos (Chave/Valor) --> itens
 //Métodos: obter(Chave), colocar({ C,V }), limpar(), imprimir()
 //
+type mapaID<C, V> = { chave: C, valor: V }
+class Mapa<C, V>{
+	itens:Array<mapaID<C,V>> = new Array<mapaID<C,V>>()
 
-class Mapa<T,R>{
-	public chave:T
-	public valor:R
-	constructor(chave:T, valor:R){
-		this.chave = chave
-		this.valor = valor
-	}
-	
-	
-	obter(chave:T){
-	
+	obter(chave:C):mapaID<C, V> | null{
+		const resultado = this.itens.filter(i=>i.chave === chave)
+		return resultado ? resultado[0] : null	
 	}
 
+	colocar(par: mapaID<C, V>):void{
+		let encontrado = this.obter(par.chave)
+		if(encontrado){
+			encontrado.valor = par.valor
+		}else{
+			this.itens.push(par)
+		}
+	
+	}
+
+	limpar(){
+		this.itens = new Array<mapaID<C, V>>()
+	}
+
+	imprimir(){
+		console.log(this.itens)
+	}
 }
 
 

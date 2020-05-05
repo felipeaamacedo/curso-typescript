@@ -119,19 +119,28 @@ filaDoBanco.proximoDaFila();
 filaDoBanco.proximoDaFila();
 filaDoBanco.proximoDaFila();
 filaDoBanco.proximoDaFila();
-//AULA 120 Restrições (Constraints)
-//restrição de tipos que vão ser chamados no generics
-//sintax: exemplo  <T extends number|string> 
-//AULA 121: Desafio do módulo
-//Array de Objetos (Chave/Valor) --> itens
-//Métodos: obter(Chave), colocar({ C,V }), limpar(), imprimir()
-//
 class Mapa {
-    constructor(chave, valor) {
-        this.chave = chave;
-        this.valor = valor;
+    constructor() {
+        this.itens = new Array();
     }
     obter(chave) {
+        const resultado = this.itens.filter(i => i.chave === chave);
+        return resultado ? resultado[0] : null;
+    }
+    colocar(par) {
+        let encontrado = this.obter(par.chave);
+        if (encontrado) {
+            encontrado.valor = par.valor;
+        }
+        else {
+            this.itens.push(par);
+        }
+    }
+    limpar() {
+        this.itens = new Array();
+    }
+    imprimir() {
+        console.log(this.itens);
     }
 }
 const mapa = new Mapa();
