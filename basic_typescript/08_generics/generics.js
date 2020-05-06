@@ -1,4 +1,14 @@
 "use strict";
+//TOC
+//1. O que o tipo generics
+//2. Por que usar o generics?
+//3. Criando função com generics
+//4. Usando generics com array
+//5. Criando classes com generics
+//6. Desafio generics
+//7. Restrições (Constraints)
+//8. Desafio do módulo
+//
 //TIPO GENERICS
 //É um outro tipo que substitui o ANY, e é utilizado quando precisa ter alguma fun??o ou vari?vel mais gen?rica, mas que mesmo assim passe pelo transpiler do TS. 
 //
@@ -19,11 +29,11 @@ console.log(echoMelhorado('Joao').length);
 console.log(echoMelhorado(27));
 console.log(echoMelhorado({ nome: 'Joao', idade: 27 }).nome);
 //AULA 112-113: ARRAY COM GENERICS
-//o generics ? gen?rico do ponto de vista da pessoa que est? construindo, uma vez que ele constroi a fun??o tendo em vista o usu?rio especificar o tipo ao usar. Isso ? uma forma de fortalecer o que o o usu?rio ir? usar.
+//o generics é genérico do ponto de vista da pessoa que está construindo, uma vez que ele constroi a função tendo em vista o usuário especificar o tipo ao usar. Isso é uma forma de fortalecer o que o o usuario irá usar.
 let notasDosAlunos = [5.5, 7.1, 8.2];
 notasDosAlunos.push(9.0);
 notasDosAlunos.push(7.9);
-//notasDosAlunos.push('8.4') //neste caso temos um erro pois o usu?rio especificou um tipo para a fun??o generics Array.
+//notasDosAlunos.push('8.4') //neste caso temos um erro pois o usuário especificou um tipo para a função generics Array.
 console.log(notasDosAlunos);
 // AULA 115 - Criando classes com generics
 //
