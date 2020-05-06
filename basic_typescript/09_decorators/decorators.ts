@@ -17,14 +17,14 @@
 //
 
 //AULA 127 - CRIANDO DECORATORS DE CLASSES
-//@logarClasse
-@logarClasseSe(true)
-//@decorator({a:'Teste', b:123})
-class Eletrodomestico{
-  constructor(){
-    console.log('novo...')
-  }
-}
+////@logarClasse
+//@logarClasseSe(true)
+////@decorator({a:'Teste', b:123})
+//class Eletrodomestico{
+  //constructor(){
+    //console.log('novo...')
+  //}
+//}
 
 
 function logarClasse(construtor: Function){
@@ -48,3 +48,41 @@ function decorator(obj:{a:string, b:number}){
 		console.log(obj.a + ' ' + obj.b)
 	}
 }
+
+
+
+//AULA 129 - Alterando construtor com decorator e classe
+// substituir a classe por uma herança de uma classe, e essa subclasse tem novos métodos e atributos em relação a classe usada.
+
+//@logarClasse
+//@decorator({a:'Teste', b:123})
+//@logarClasseSe(true)
+@logarObjeto
+class Eletrodomestico{
+  constructor(){
+    console.log('novo...')
+  }
+}
+
+//assinatura de um construtor mais genérico possível
+type Construtor = { new(...arg:any[]): {} }
+
+function logarObjeto(construtor: Construtor){
+	console.log('Carregado...')
+	return class extends construtor{
+		constructor(...args: any[]){
+			console.log('Antes...')
+
+			//como eu quero acessar os atributos e metodos da classe pai, preciso usar a função super
+			//alé disso é necessário usar o spread, para separar o array que foi enviado como parâmetro
+			super(...args)
+			
+			console.log('Depois...')
+		}
+	}
+}
+
+new Eletrodomestico
+new Eletrodomestico
+new Eletrodomestico
+

@@ -20,18 +20,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 //DEFINIÇÃO DE DECORATOR
 //
 //AULA 127 - CRIANDO DECORATORS DE CLASSES
-//@logarClasse
-let Eletrodomestico = 
-//@decorator({a:'Teste', b:123})
-class Eletrodomestico {
-    constructor() {
-        console.log('novo...');
-    }
-};
-Eletrodomestico = __decorate([
-    logarClasseSe(true)
-    //@decorator({a:'Teste', b:123})
-], Eletrodomestico);
+////@logarClasse
+//@logarClasseSe(true)
+////@decorator({a:'Teste', b:123})
+//class Eletrodomestico{
+//constructor(){
+//console.log('novo...')
+//}
+//}
 function logarClasse(construtor) {
     console.log(construtor);
 }
@@ -47,4 +43,32 @@ function decorator(obj) {
         console.log(obj.a + ' ' + obj.b);
     };
 }
+//AULA 129 - Alterando construtor com decorator e classe
+// substituir a classe por uma herança de uma classe, e essa subclasse tem novos métodos e atributos em relação a classe usada.
+//@logarClasse
+//@decorator({a:'Teste', b:123})
+//@logarClasseSe(true)
+let Eletrodomestico = class Eletrodomestico {
+    constructor() {
+        console.log('novo...');
+    }
+};
+Eletrodomestico = __decorate([
+    logarObjeto
+], Eletrodomestico);
+function logarObjeto(construtor) {
+    console.log('Carregado...');
+    return class extends construtor {
+        constructor(...args) {
+            console.log('Antes...');
+            //como eu quero acessar os atributos e metodos da classe pai, preciso usar a função super
+            //alé disso é necessário usar o spread, para separar o array que foi enviado como parâmetro
+            super(...args);
+            console.log('Depois...');
+        }
+    };
+}
+new Eletrodomestico;
+new Eletrodomestico;
+new Eletrodomestico;
 //# sourceMappingURL=decorators.js.map
