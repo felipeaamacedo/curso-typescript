@@ -17,6 +17,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+// RECURSOS DO CAPÍTULO
+// https://www.typescriptlang.org/docs/handbook/decorators.html
 //DEFINIÇÃO DE DECORATOR
 //
 //AULA 127 - CRIANDO DECORATORS DE CLASSES
@@ -71,4 +76,75 @@ function logarObjeto(construtor) {
 new Eletrodomestico;
 new Eletrodomestico;
 new Eletrodomestico;
+//AULA 135 - Decorador de método
+//
+class ContaCorrente {
+    constructor(saldo) {
+        this.saldo = saldo;
+    }
+    sacar(valor) {
+        if (valor <= this.saldo) {
+            this.saldo -= valor;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    getSaldo() {
+        return this.saldo;
+    }
+}
+__decorate([
+    naoNegativo //AULA 136
+], ContaCorrente.prototype, "saldo", void 0);
+__decorate([
+    congelar,
+    __param(0, paramInfo)
+], ContaCorrente.prototype, "sacar", null);
+__decorate([
+    congelar
+], ContaCorrente.prototype, "getSaldo", null);
+const cc = new ContaCorrente(10248.57);
+console.log(cc.getSaldo());
+cc.sacar(5000);
+console.log(cc.getSaldo());
+// cc.getSaldo = function(){
+// 	return this['saldo'] +7000
+// }
+console.log(cc.getSaldo());
+//Assinatura de um decoretor em função
+// Object.freeze()
+function congelar(alvo, nomeMetodo, descritor) {
+    console.log(alvo);
+    console.log(nomeMetodo);
+    descritor.writable = false;
+}
+//AULA 135 Decorator de Atributo
+//
+function naoNegativo(alvo, nomePropriedade) {
+    //deleta a propriedade que foi decorada
+    delete alvo[nomePropriedade];
+    //criou uma nova com o mesmo nome mas internamente salvando em outra variável e criando as propriedades get e set para poder validar se o número é negativo ou não.
+    Object.defineProperty(alvo, nomePropriedade, {
+        get: function () {
+            return alvo["_" + nomePropriedade];
+        },
+        set: function (valor) {
+            if (valor < 0) {
+                throw new Error('Saldo Inválido');
+            }
+            else {
+                alvo["_" + nomePropriedade] = valor;
+            }
+        }
+    });
+}
+//AULA 137: Decorator de Parâmetro
+//
+function paramInfo(alvo, nomeMetodo, indiceParam) {
+    console.log(`Alvo: ${alvo}`);
+    console.log(`Método: ${nomeMetodo}`);
+    console.log(`Índice Param: ${indiceParam}`);
+}
 //# sourceMappingURL=decorators.js.map

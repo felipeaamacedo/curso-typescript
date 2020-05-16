@@ -11,7 +11,8 @@
 // 9. DECORATOR DE PARÂMETRO
 // 10. CONCLUSÃO
 
-
+// RECURSOS DO CAPÍTULO
+// https://www.typescriptlang.org/docs/handbook/decorators.html
 
 //DEFINIÇÃO DE DECORATOR
 //
@@ -86,3 +87,81 @@ new Eletrodomestico
 new Eletrodomestico
 new Eletrodomestico
 
+//AULA 135 - Decorador de método
+//
+
+class ContaCorrente{
+	@naoNegativo //AULA 136
+	private saldo:number
+	constructor(saldo: number){
+		this.saldo = saldo
+	}
+
+	@congelar
+	sacar(@paramInfo valor:number){ //@paramInfo AULA 137
+		if(valor <= this.saldo){
+			this.saldo -= valor
+			return true
+		}else{
+			return false
+		}
+	}
+	@congelar
+	getSaldo(){
+			return this.saldo
+	}
+}
+
+
+const cc = new ContaCorrente(10248.57)
+console.log(cc.getSaldo())
+cc.sacar(5000)
+console.log(cc.getSaldo())
+// cc.getSaldo = function(){
+// 	return this['saldo'] +7000
+// }
+console.log(cc.getSaldo())
+
+
+//Assinatura de um decoretor em função
+
+// Object.freeze()
+function congelar(alvo: any, nomeMetodo:string, descritor: PropertyDescriptor){
+	console.log(alvo)
+	console.log(nomeMetodo)
+	descritor.writable = false
+}
+
+
+//AULA 135 Decorator de Atributo
+//
+
+function naoNegativo(alvo: any, nomePropriedade:string){
+
+	//deleta a propriedade que foi decorada
+	delete alvo[nomePropriedade]
+
+	//criou uma nova com o mesmo nome mas internamente salvando em outra variável e criando as propriedades get e set para poder validar se o número é negativo ou não.
+	Object.defineProperty(alvo, nomePropriedade, {
+		get: function(): any{
+			return alvo["_" + nomePropriedade]
+		},
+
+		set: function(valor: any):void{
+			if(valor < 0) {
+				throw new Error('Saldo Inválido')
+			}else{
+				alvo["_" + nomePropriedade] = valor
+			}
+		}
+	})
+}
+
+//AULA 137: Decorator de Parâmetro
+//
+
+function paramInfo(alvo:any, nomeMetodo:string, indiceParam:number){
+	console.log(`Alvo: ${alvo}`)
+	console.log(`Método: ${nomeMetodo}`)
+	console.log(`Índice Param: ${indiceParam}`)
+}

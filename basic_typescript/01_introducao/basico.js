@@ -3,6 +3,7 @@
 // 1. Instalar o node.js
 // 2. Digitar cmd no windows e digitar o comando "npm i -g typescript" e em seguida checar a versão do typescript com o comando "tsc -v"
 // 3. Instalar o VS Code;
+// 4. Usar o comando "npm install" para instalar os modulos do node
 // COMO COMPILAR UM ARQUIVO TYPESCRIPT MANUALMENTE
 // 1. digitar o comando "tsc --init" para iniciar o projeto de typescript e criar o arquivo "tsconfig.json"
 // 2. pelo terminal digitar o comando "tsc <nome do arquivo>.ts" que irá gerar um arquivo "<nome do arquivo>.js"
@@ -23,7 +24,11 @@
 //RESUMO DE COMANDOS PARA INSTALAR TYPESCRIPT
 //1. npm i -g typescript
 //2. npm i -g ts-node
-//RESUMO PARA INICIAR UM PROJETO TS //2. tsc --init //3. npm i -g ts-node //4. npm init -y
+//RESUMO PARA INICIAR UM PROJETO TS 
+//1. npm install
+//2. tsc --init
+//3. npm i -g ts-node
+//4. npm init -y
 //5. npm i -s live-server e inserir comando "start":"live-server" under package.json file
 //RESUMO DE COMANDOS PARA RODAR TYPESCRIPT E COMPILAR AUTOMATICAMENTE NO BROWSER
 //npm start
