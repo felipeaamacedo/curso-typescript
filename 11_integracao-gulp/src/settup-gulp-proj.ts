@@ -1,5 +1,5 @@
 //SETUP PARA CRIAR UM PROJETO GULP
-//
+// referências: https://www.typescriptlang.org/docs/handbook/gulp.html 
 
 // 1. CRIAR PROJETO TS (tsc --init)
 // 2. CRIAR PROJETO NODE (npm init -y)
@@ -21,9 +21,15 @@
 // 1. npm i --save-dev gulp typescript browserify tsify vinyl-source-stream del
 // 2. entrar no arquivo package.json  e inserir um script de build na área de scripts ("build": "gulp")
 // 3. criar o um arquivo "gulpfile.js" na pasta principal, onde fica o package.json
+// 4. instalação de dependencias para arquivo de produção minificado (npm i --save-dev gulp-uglify gulp-rename)
+
+
 
 // O QUE é o GULP?
 // é uma ferramenta de tarefas, ou seja, ela consegue criar pastas, inserir certos arquivos em suas devidas pastas, pegar diversos arquivos JS e comprimir em um arquivo somente, ou até tirar os espaços brancos dos arquivos build.
 
 //COMO RODAR O GULP?
 // para rodar o gulp e executar as tarefas para poder gerar o build (arquivo final comprimido), é necessário somente usar o comando "npm run build"
+
+//ARQUIVO PRODUÇÃO
+// quando tudo o código ficar pronto, é importante criar o arquivo JS minificado, (app.min.js), e colocar ele no arquivo html no lugar do app.js. Esse arquivo minificado, além de mais leve é mais dificil de ler, fazendo o seu código relativamente mais seguro de ser copiado.
