@@ -1,0 +1,25 @@
+INTEGRAÇÃO TYPESCRIPT + REACT
+TOC
+
+1. CONFIGURANDO PROJETO REACT COM TYPESCRIPT
+2. COMPONENTE FUNCIONAL: APLICANDO TIPOS
+3. COMPONENTE DE CLASSE: APLICANDO TIPOS #01
+4. COMPONENTE DE CLAhttps://facebook.github.io/create-react-app/docs/adding-typescript
+
+AULA 163 - CONFIGURANDO PROJETO REACT COM TYPESCRIPT
+
+Para criar um projeto REACT usando o typescript, navegue até a pasta onde você gostaria de criar o projeto e digite o comando no terminal:
+
+npx create-react-app nomeDoDiretorioDoProjeto --typescript
+
+e desta forma será criada uma pasta com o nomeDoDiretorioDoProjeto dado e com todos os arquivos necessários.
+
+Apagar 'App.test.tsx'
+Apagar arquivo svg 
+Apagar código dentro do <div className=App> dentro do 'App.tsx'
+Apagar 'import svg' dentro do 'App.tsx'
+
+
+CONCLUSÃO
+referências
+https://facebook.github.io/create-react-app/docs/adding-typescript
