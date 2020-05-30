@@ -1,0 +1,54 @@
+REFERENCIAS
+https://webpack.js.org/guides/typescript/
+https://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html#webpack
+
+
+
+1. No projeto em WEBPACK precisamos fazer o layout de pastas criando as pastas:
+
+/src
+/src/modelo
+/public
+/public/css
+
+Na pasta SRC são colocados os arquivos fonte, e principalmente o topo que seria o "main.ts"
+
+Na pasta /src/modelo são colocados os arquivos com os módulos criados e que vão ser importados pelo arquivo "main.ts"
+
+A pasta /public e /public/css são os arquivos que servem como GUI, i.e. index.html e o css.
+
+
+2. Depois é necessário criar os arquivos "package.json" e "tsconfig.json", para isso rodamos os comandos:
+
+npm init -y 
+tsc --init 
+
+
+3. Em seguida são instaladas as dependências que serão usadas:
+
+npm i -D webpack webpack-cli typescript ts-loader jquery @types/jquery
+
+
+4. Criar um arquivo na pasta /src chamado "webpack.config.js" e nesse arquivo colocar todos os comandos que devem ser feitos de forma a criar a pasta destino, o nome do arquivo final, e como que o arquivo minificado será criado.
+
+5. Em seguida colocar no arquivo "package.json" na área scripts o comando "build": "webpack"
+
+
+6. para copiar os arquivos de /public para /dist, é necessário usar um plugin e para instalar é necessário rodar o comando:
+
+npm i -D copy-webpack-plugin
+
+
+7. configuração do webpack-dev-server que é um servidor igual ao live-server mas que funciona com o webpack
+
+npm i -D webpack-dev-server
+
+em seguida adicione as linhas abaixo no arquivo webpack.config.js
+
+devServer:{
+        contentBase: path.join(__dirname, 'dist'),
+        port:9000,
+        hot: true //hot reload para ficar dando o reload
+    },
+
+Além disso adicione o comando 'start' no arquivo package.json.
