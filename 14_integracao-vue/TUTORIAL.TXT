@@ -1,0 +1,28 @@
+Criando projetos
+# 1. Instale o Vue CLI globalmente, se ainda não estiver instalado
+npm install --global @vue/cli
+
+# 2. Crie um novo projeto, então escolha a opção "M"
+vue create my-project-name
+
+SELECIONAR OS COMANDOS COMO ABAIXO:
+
+Please pick a preset: Manually select features
+
+Check the features needed for your project: Babel, TS, Linter
+
+Use Babel alongside TypeScript for auto-detected polyfills? Y
+
+Pick a linter / formatter config: TSLint
+
+Pick additional lint features: Lint on save
+
+Where do you prefer placing config for Babel, PostCSS, ESLint, etc.? In a dedicated config files
+
+Save this as a preset for future projects? N
+
+
+referências
+https://br.vuejs.org/v2/guide/typescript.html
+https://github.com/vuejs/vue-class-component
+https://github.com/kaorun343/vue-property-decorator
